@@ -1,28 +1,25 @@
-import './App.css';
-import 'leaflet/dist/leaflet.css';
+import React from 'react';
+import { MapContainer } from 'react-leaflet/MapContainer';
+import { Marker } from 'react-leaflet/Marker';
+import { Popup } from 'react-leaflet/Popup';
+import { TileLayer } from 'react-leaflet/TileLayer';
+import './App.css'
 
-// import { MapContainer } from 'react-leaflet/MapContainer'
-// import { TileLayer } from 'react-leaflet/TileLayer'
-// import { useMap } from 'react-leaflet/hooks'
-import { MapContainer, TileLayer, useMap } from 'react-leaflet'
-
-function App() {
-  
+function App(props) {
   return (
-    
-        
-        <div id="map">
-          <h1>Water Witch</h1>
-          <h3>Douse around the map to find a fill station</h3>
-          <MapContainer center={[40.7199, 73.9775]} zoom={13} scrollWheelZoom={false}>
+    <div id='map'>
+    <MapContainer className='map' center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
+  <Marker position={[51.505, -0.09]}>
+    <Popup>
+      A pretty CSS3 popup. <br /> Easily customizable.
+    </Popup>
+  </Marker>
 </MapContainer>
-        </div>
-        
-    
+</div>
   );
 }
 
