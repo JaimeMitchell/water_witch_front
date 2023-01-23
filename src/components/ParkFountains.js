@@ -1,8 +1,15 @@
-import  React from 'react';
+// import  React from 'react';
+// import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
+// const fountains= './data/NYC_Parks_Water'.features;
 
-const ParkFountains(props) => {
-  (return 0;
-    )
-  };
 
-export default ParkFountains;
+// const ParkFountains=(props)=>{
+//   return(
+//     <div>
+
+//       fountains.map(<Marker></Marker>)
+//     </div>
+//   )
+// }
+
+// export default ParkFountains;
