@@ -21,7 +21,7 @@ function App(props) {
   return (
     <div id='map'>
       <MapContainer
-        className='map'
+       style={{ height: '100vh', width: '100wh' }}
         center={[40.72316, -73.984829394]}
         zoom={13}
         scrollWheelZoom={true}
