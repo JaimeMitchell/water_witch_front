@@ -42,7 +42,7 @@ function App() {
       <MapContainer
        style={{ height: '100vh', width: '100wh' }}
         center={[40.72316, -73.984829394]}
-        zoom={20}
+        zoom={13}
         scrollWheelZoom={true}
       >
         <LocationMarker/>
