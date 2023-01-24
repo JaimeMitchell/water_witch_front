@@ -1,14 +1,12 @@
 import { React, useState } from 'react';
 import {
-  MapContainer,
-  TileLayer,
   Marker,
   Popup,
   useMapEvents
 } from 'react-leaflet';
 // import ParkFountains from './components/ParkFountains';
 
-function LocationMarker() {
+function LocationMarker(props) {
   const [position, setPosition] = useState(null);
   const map = useMapEvents({
     click() {
@@ -27,18 +25,5 @@ function LocationMarker() {
   );
 }
 
-(
-  <MapContainer
-    center={{ lat: 51.505, lng: -0.09 }}
-    zoom={13}
-    scrollWheelZoom={false}
-  >
-    <TileLayer
-      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-    />
-    <LocationMarker />
-  </MapContainer>
-);
 
 export default LocationMarker;

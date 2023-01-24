@@ -1,44 +1,63 @@
-import { React, useState, useEffect, useContext } from 'react';
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
-// import ParkFountains from './components/ParkFountains';
-import './App.css';
-import LocationMarker from './components/LocationMarker';
+import { useState, useEffect, useContext } from 'react';
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap, useMapEvent, useMapEvents } from 'react-leaflet';
 
-function App(props) {
+import './App.css';
+// import LocationMarker from './components/LocationMarker';
+
+function App() {
+  function LocationMarker() {
+    const [position, setPosition] = useState(null);
+    const map = useMapEvents({
+      click() {
+        map.locate();
+      },
+      locationfound(e) {
+        setPosition(e.latlng);
+        map.flyTo(e.latlng, map.getZoom());
+      },
+    });
+  
+    return position === null ? null : (
+      <Marker position={position}>
+        <Popup>You are here</Popup>
+      </Marker>
+    );
+  }
+  
   const [geojsonData, setGeojsonData] = useState([]);
 
   console.log(geojsonData);
 
   useEffect(() => {
-    fetch('https://data.cityofnewyork.us/resource/bevm-apmm.json')
+    fetch('https://data.cityofnewyork.us/resource/bevm-apmm.json?$limit=3871&$offset=0')
       .then((response) => response.json())
       .then((data) => setGeojsonData(data));
   }, []);
-
+  
   // const filteredData = geojsonData.filter((feature) => feature.borough === 'M');
-  //Note: filteredData must be used in place of geojsonData for GeoJSON component data value and as the list to map over (currently lines 34 and 40)
 
   return (
     <div id='map'>
+      
       <MapContainer
        style={{ height: '100vh', width: '100wh' }}
         center={[40.72316, -73.984829394]}
-        zoom={13}
+        zoom={20}
         scrollWheelZoom={true}
       >
+        <LocationMarker/>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
-        <LocationMarker />
         <GeoJSON data={geojsonData} />
         <Marker position={[40.72316, -73.984829394]}>
           <Popup>
             East Village, NYC <br /> Douse around for water
           </Popup>
+          
         </Marker>
         {geojsonData.map((fountain, id) => (
-          //fountain is 1 object. the_geom is an object . coordinates is a list with 2 values.
           <Marker
             position={[
               fountain.the_geom.coordinates[1],
