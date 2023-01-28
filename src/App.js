@@ -4,17 +4,19 @@ import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap } from 'react-l
 import './App.css';
 import LocationMarker from './components/LocationMarker';
 
-function App(props) {
+function App() {
   const [geojsonData, setGeojsonData] = useState([]);
 
   useEffect(() => {
     fetch('https://data.cityofnewyork.us/resource/bevm-apmm.json?$limit=3871&$offset=0')
       .then((response) => response.json())
       .then((data) => setGeojsonData(data));
+      console.log(geojsonData)
+
   }, []);
   
   const filteredData = geojsonData.filter((feature) => feature.borough === 'M');
-
+  console.log(filteredData)
   return (
     <div id='map'>
       
