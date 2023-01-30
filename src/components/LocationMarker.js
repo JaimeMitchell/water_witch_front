@@ -13,12 +13,12 @@ const redIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-function LocationMarker() {
+function LocationMarker(props) {
   const map = useMap();
   const [location, setLocation] = useState(null);
 
   useEffect(() => {
-    map.locate({ setView: true, maxZoom: 16 });
+    map.locate({ setView: true, maxZoom: 13 });
     map.on('locationfound', (e) => {
       setLocation(e.latlng);
     });
