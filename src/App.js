@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-
+import {MarkerClusterGroup} from 'react-leaflet-cluster';
 import './App.css';
 import LocationMarker from './components/LocationMarker';
 import axios from 'axios';
@@ -43,7 +43,7 @@ function App() {
 
   // useEffect(() => {
   //   getMarkerDb().then((markers) => {
-  //     setGeojsonData(markers);
+  //     setFountinas(markers);
   //   });
   // }, []);
 
@@ -53,7 +53,7 @@ function App() {
         center={[40.7128, -73.9656]}
         style={{ height: '100vh', width: '100wh' }}
         zoom={13}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -68,7 +68,7 @@ function App() {
             icon={blueIcon}
           >
             <Popup>
-              Name:{fountain.name} <br /> Details:{fountain.details}
+              {fountain.name} <br /> Details:  {fountain.details} <br/> Type: {fountain.type}
             </Popup>
           </Marker>
         ))}

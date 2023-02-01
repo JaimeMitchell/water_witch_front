@@ -1,11 +1,41 @@
 
 .map{height: 100vh;
     width: 100vh;}
-/* 
-CSS will not display across entire screen, so I put style in the MapContainer and it works.
-    <MapContainer
-    style={{ height: '100vh', width: '100wh' }}
-     center={[40.72316, -73.984829394]}
-     zoom={13}
-     scrollWheelZoom={true}
-   > */
+    .markerClusterSmall {
+        border-radius: 20px;
+        font-size: 0.6vw;
+        color: #fff;
+        font-weight: 900;
+        font-family: Open Sans;
+        text-transform: uppercase;
+     }
+     .markerClusterMedium {
+        border-radius: 40px;
+        font-size: 0.6vw;
+        color: #fff;
+        font-weight: 900;
+        font-family: Open Sans;
+        text-transform: uppercase;
+     }
+     .markerClusterLarge {
+        border-radius: 70px;
+        font-size: 0.6vw;
+        color: #fff;
+        font-weight: 900;
+        font-family: Open Sans;
+        text-transform: uppercase;
+     }
+     .markerClusterLargeXL {
+        border-radius: 70px;
+        font-size: 0.6vw;
+        color: #fff;
+        font-weight: 900;
+        font-family: Open Sans;
+        text-transform: uppercase;
+     }
+     .markerClusterLabel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     }
+     
