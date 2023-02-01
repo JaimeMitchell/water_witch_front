@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import {MarkerClusterGroup} from 'react-leaflet-cluster';
+import MarkerClusterGroup from 'react-leaflet-cluster';
 import './App.css';
 import LocationMarker from './components/LocationMarker';
 import axios from 'axios';
@@ -29,11 +29,8 @@ const blueIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-
 function App() {
   const [fountains, setFountains] = useState([]);
-  console.log(fountains);
-
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/fountains`)
@@ -48,33 +45,41 @@ function App() {
   // }, []);
 
   return (
-    <div id='map'>
-      <MapContainer
-        center={[40.7128, -73.9656]}
-        style={{ height: '100vh', width: '100wh' }}
-        zoom={13}
-        scrollWheelZoom={true}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-        />
-        <GeoJSON data={fountains} />
-
-        {fountains.map((fountain, id) => (
+    <MapContainer
+      center={[40.7157, -73.8667]}
+      style={{ height: '100vh', width: '100wh' }}
+      zoom={11}
+      scrollWheelZoom={true}
+    >
+      {/* {(addressPoints as AdressPoint).map((address, index) => (
+  <Marker
+    key={index}
+    position={[address[0], address[1]]}
+    title={address[2]}
+    icon={customIcon}
+  ></Marker>
+))} */}
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+      />
+      <GeoJSON data={fountains} />
+      <MarkerClusterGroup chunkedLoading>
+        {fountains.map((fountain) => (
           <Marker
             key={fountain.id}
             position={[fountain.latitude, fountain.longitude]}
             icon={blueIcon}
           >
             <Popup>
-              {fountain.name} <br /> Details:  {fountain.details} <br/> Type: {fountain.type}
+              {fountain.name} <br /> Details: {fountain.details} <br /> Type:{' '}
+              {fountain.type}
             </Popup>
           </Marker>
         ))}
-        <LocationMarker/>
-      </MapContainer>
-    </div>
+        <LocationMarker />
+      </MarkerClusterGroup>
+    </MapContainer>
   );
 }
 
