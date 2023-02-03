@@ -1,46 +1,19 @@
-.map {
-    height: 100vh;
-    width: 100vh;
+.marker-cluster-small {
+  background-color: #1192d7;
+  color: rgb(14, 117, 234);
 }
 
-.markerClusterSmall {
-    border-radius: 20px;
-    font-size: 0.6vw;
-    color: rgb(13, 162, 236);
-    font-weight: 900;
-    font-family: Open Sans;
-    text-transform: uppercase;
+.marker-cluster-medium {
+  background-color: #1192d7;
+  color: rgb(14, 117, 234);
 }
 
-.markerClusterMedium {
-    border-radius: 40px;
-    font-size: 0.6vw;
-    color: rgb(8, 195, 242);
-    font-weight: 900;
-    font-family: Open Sans;
-    text-transform: uppercase;
+.marker-cluster-large {
+  background-color: #1192d7;
+  color: rgb(14, 117, 234);
 }
 
-.markerClusterLarge {
-    border-radius: 70px;
-    font-size: 0.6vw;
-    color: rgb(13, 132, 230);
-    font-weight: 900;
-    font-family: Open Sans;
-    text-transform: uppercase;
-}
-
-.markerClusterLargeXL {
-    border-radius: 70px;
-    font-size: 0.6vw;
-    color: rgb(21, 91, 243);
-    font-weight: 900;
-    font-family: Open Sans;
-    text-transform: uppercase;
-}
-
-.markerClusterLabel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.marker-cluster {
+  background-color: #11cbd7;
+  color: rgb(14, 117, 234);
 }
