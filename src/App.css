@@ -1,19 +1,79 @@
-.marker-cluster-small {
+.marker-cluster-small  {
   background-color: #1192d7;
-  color: rgb(14, 117, 234);
+  color: rgb(15, 103, 235);
+  border-color: rgb(207, 207, 243);
+
+
+}
+
+.marker-cluster-small div {
+  background-color: #1192d7;
+  color: rgb(15, 103, 235);
+  border-color: rgb(207, 207, 243);
+
+}
+
+.marker-cluster-small span {
+  background-color: #1192d7;
+  color: rgb(255, 255, 255);
+  border-color: rgb(207, 207, 243);
+  font-style: bold;
+
+}
+
+.marker-cluster-medium span {
+  background-color: #1192d7;
+  color: rgb(245, 248, 248);
+  border-color: rgb(207, 207, 243);
+
+
+}
+
+.marker-cluster-medium div {
+  background-color: #1192d7;
+  color: rgb(15, 103, 235);
+  border-color: rgb(207, 207, 243);
+  border-width: 3px;
+
 }
 
 .marker-cluster-medium {
   background-color: #1192d7;
-  color: rgb(14, 117, 234);
+  color: rgb(15, 103, 235);
+  border-color: rgb(207, 207, 243);
+
 }
 
 .marker-cluster-large {
   background-color: #1192d7;
-  color: rgb(14, 117, 234);
+  color: rgb(15, 103, 235);
+  border-color: rgb(207, 207, 243);
+
 }
 
-.marker-cluster {
-  background-color: #11cbd7;
-  color: rgb(14, 117, 234);
+.marker-cluster-large div {
+  background-color: #1192d7;
+  color: rgb(15, 103, 235);
+  border-color: rgb(207, 207, 243);
+}
+
+.marker-cluster-large span {
+  background-color: #1192d7;
+  color: rgb(255, 255, 255);
+  border-color: rgb(207, 207, 243);
+}
+
+
+.marker-cluster-flex span {
+  background-color: #1192d7;
+  color: rgb(255, 255, 255);
+  border-color: rgb(207, 207, 243);
+  ;
+}
+
+.marker-cluster-flex div {
+  background-color: #1192d7;
+  color: rgb(15, 103, 235);
+  border-color: rgb(207, 207, 243);
+  ;
 }

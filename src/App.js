@@ -43,36 +43,17 @@ function App() {
   //     setFountinas(markers);
   //   });
   // }, []);
-  const customMarker = (cluster) => {
-    const childrenCount = cluster.getChildCount();
-    let fillColor = '#11cbd7';
   
-    return L.divIcon({
-      html: `
-        <svg width="32" height="43">
-          <path d="M16,0C7.164,0,0,7.164,0,16s7.164,16,16,16s16-7.164,16-16S24.836,0,16,0z M16,28.5c-5.252,0-9.5-4.248-9.5-9.5S10.748,9,16,9s9.5,4.248,9.5,9.5S21.252,28.5,16,28.5z" fill="${fillColor}" />
-        </svg>
-      `,
-      className: 'marker-cluster-raindrop',
-      iconSize: new L.Point(32, 43)
-    });
-  };
+  
+  
   return (
     <MapContainer
-      iconCreateFunction={customMarker}
       center={[40.7157, -73.8667]}
       style={{ height: '100vh', width: '100wh' }}
       zoom={11}
       scrollWheelZoom={true}
     >
-      {/* {(addressPoints as AdressPoint).map((address, index) => (
-  <Marker
-    key={index}
-    position={[address[0], address[1]]}
-    title={address[2]}
-    icon={customIcon}
-  ></Marker>
-))} */}
+     
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

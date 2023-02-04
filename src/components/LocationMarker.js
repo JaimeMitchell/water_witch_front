@@ -26,7 +26,7 @@ function LocationMarker(props) {
 
   return location ? (
     <Marker position={[location.lat, location.lng]} icon={redIcon}>
-      <Popup>Here you are, little dousing water witch!</Popup>
+      <Popup>Here you are!</Popup>
     </Marker>
   ) : null;
 }
