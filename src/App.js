@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useMemo } from 'react';
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import './App.css';
 import LocationMarker from './components/LocationMarker';
+import Menu from './components/Menu';
 import axios from 'axios';
 export const URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -29,16 +30,34 @@ const blueIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-function App() {
+
+const App = () => {
+  const [selectedType, setSelectedType] = useState('');
+  const [selectedBorough, setSelectedBorough] = useState('');
   const [fountains, setFountains] = useState([]);
-  const [type, setType] = useState('');
-  const [borough, setBorough] = useState('');
+
+  const requestUrl = useMemo(() => {
+    let url = `${process.env.REACT_APP_BACKEND_URL}/fountains`;
+    if (selectedType) {
+      url += `?type=${selectedType}`;
+    }
+    if (selectedBorough) {
+      url += `${selectedType ? '&' : '?'}borough=${selectedBorough}`;
+    }
+    return url;
+  }, [selectedType, selectedBorough]);
 
   useEffect(() => {
-    getFountainsAPI().then((fountains) => {
-      setFountains(fountains);
-    });
-  }, []);
+    const getFountains = async () => {
+      const response = await axios.get(requestUrl);
+      setFountains(response.data);
+    };
+
+    getFountains();
+  }, [requestUrl]);
+
+
+
 
   return (
     <MapContainer
@@ -47,6 +66,10 @@ function App() {
       zoom={11}
       scrollWheelZoom={true}
     >
+      <Menu selectedType={selectedType} 
+        setSelectedType={setSelectedType}
+        selectedBorough={selectedBorough}
+        setSelectedBorough={setSelectedBorough}>MENU</Menu>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
