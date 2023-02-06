@@ -5,19 +5,19 @@ import MarkerClusterGroup from 'react-leaflet-cluster';
 import './App.css';
 import LocationMarker from './components/LocationMarker';
 import axios from 'axios';
-
 export const URL = process.env.REACT_APP_BACKEND_URL;
 
-// const getMarkerDb = () => {
-//   return axios
-//     .get(`${process.env.REACT_APP_BACKEND_URL}/fountains`)
+export const getFountainsAPI = () => {
+  return axios
+    .get(`${process.env.REACT_APP_BACKEND_URL}/fountains`)
 
-//     .then((response) => {
-//       return response.data;
-//     })
+    .then((response) => {
+      return response.data;
+    })
 
-//     .catch((err) => console.log(err));
-// };
+    .catch((err) => console.log(err));
+};
+
 const blueIcon = new L.Icon({
   iconUrl:
     'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
@@ -31,21 +31,15 @@ const blueIcon = new L.Icon({
 
 function App() {
   const [fountains, setFountains] = useState([]);
+  const [type, setType] = useState('');
+  const [borough, setBorough] = useState('');
+
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/fountains`)
-      .then((res) => setFountains(res.data))
-      .catch((err) => console.log(err));
+    getFountainsAPI().then((fountains) => {
+      setFountains(fountains);
+    });
   }, []);
 
-  // useEffect(() => {
-  //   getMarkerDb().then((markers) => {
-  //     setFountinas(markers);
-  //   });
-  // }, []);
-  
-  
-  
   return (
     <MapContainer
       center={[40.7157, -73.8667]}
@@ -53,16 +47,14 @@ function App() {
       zoom={11}
       scrollWheelZoom={true}
     >
-     
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
       <GeoJSON data={fountains} />
-
       <MarkerClusterGroup
         chunkedLoading
-        id = 'marker-cluster'
+        id='marker-cluster'
         animateAddingMarkers={false}
         maxClusterRadius={88}
       >

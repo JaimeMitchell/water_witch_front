@@ -12,6 +12,20 @@ export const addMarkerDb = marker => {
   );
 };
 
+// Send a POST request
+// axios({
+//   method: 'post',
+//   url: '/user/12345',
+//   data: {
+//     firstName: 'Fred',
+//     lastName: 'Flintstone'
+//   }
+// });
+ // syntax alternative to send data into the body
+  // method post
+  // only the value is sent, not the key
+  // data: 'Country=Brasil&City=Belo Horizonte',
+  
 //GET FOR NYC DRINKING FOUNTAIN MARKERS
 
 export const getMarkerDb = id => {
@@ -20,3 +34,4 @@ export const getMarkerDb = id => {
     .then(response => response.data)
     .catch(err => console.log(err)))
 }
+
