@@ -1,4 +1,4 @@
-import { useState, useEffect,useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
@@ -30,7 +30,6 @@ const blueIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-
 const App = () => {
   const [selectedType, setSelectedType] = useState('');
   const [selectedBorough, setSelectedBorough] = useState('');
@@ -56,47 +55,50 @@ const App = () => {
     getFountains();
   }, [requestUrl]);
 
-
-
-
   return (
-    <MapContainer
-      center={[40.7157, -73.8667]}
-      style={{ height: '100vh', width: '100wh' }}
-      zoom={11}
-      scrollWheelZoom={true}
-    >
-      <Menu selectedType={selectedType} 
+    <div>
+      <Menu
+        selectedType={selectedType}
         setSelectedType={setSelectedType}
         selectedBorough={selectedBorough}
-        setSelectedBorough={setSelectedBorough}>MENU</Menu>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-      />
-      <GeoJSON data={fountains} />
-      <MarkerClusterGroup
-        chunkedLoading
-        id='marker-cluster'
-        animateAddingMarkers={false}
-        maxClusterRadius={88}
+        setSelectedBorough={setSelectedBorough}
       >
-        {fountains.map((fountain) => (
-          <Marker
-            key={fountain.id}
-            position={[fountain.latitude, fountain.longitude]}
-            icon={blueIcon}
-          >
-            <Popup>
-              {fountain.name} <br /> Details: {fountain.details} <br /> Type:{' '}
-              {fountain.type}
-            </Popup>
-          </Marker>
-        ))}
-        <LocationMarker />
-      </MarkerClusterGroup>
-    </MapContainer>
+        MENU
+      </Menu>
+      <MapContainer
+        center={[40.7157, -73.8667]}
+        style={{ height: '100vh', width: '100wh' }}
+        zoom={11}
+        scrollWheelZoom={true}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        />
+        <GeoJSON data={fountains} />
+        <MarkerClusterGroup
+          chunkedLoading
+          id='marker-cluster'
+          animateAddingMarkers={false}
+          maxClusterRadius={88}
+        >
+          {fountains.map((fountain) => (
+            <Marker
+              key={fountain.id}
+              position={[fountain.latitude, fountain.longitude]}
+              icon={blueIcon}
+            >
+              <Popup>
+                {fountain.name} <br /> Details: {fountain.details} <br /> Type:{' '}
+                {fountain.type}
+              </Popup>
+            </Marker>
+          ))}
+          <LocationMarker />
+        </MarkerClusterGroup>
+      </MapContainer>
+    </div>
   );
-}
+};
 
 export default App;
