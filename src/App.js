@@ -2,9 +2,11 @@ import { useState, useEffect, useMemo } from 'react';
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
+
 import './App.css';
 import LocationMarker from './components/LocationMarker';
 import Menu from './components/Menu';
+import WaterForm from './components/WaterForm';
 import axios from 'axios';
 export const URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -16,6 +18,13 @@ export const getFountainsAPI = () => {
       return response.data;
     })
 
+    .catch((err) => console.log(err));
+};
+
+const addWaterApi = (marker) => {
+  return axios
+    .post(`${process.env.REACT_APP_BACKEND_URL}`, marker)
+    .then((response) => response.data)
     .catch((err) => console.log(err));
 };
 
@@ -34,6 +43,14 @@ const App = () => {
   const [selectedType, setSelectedType] = useState('');
   const [selectedBorough, setSelectedBorough] = useState('');
   const [fountains, setFountains] = useState([]);
+
+  const handleFormSubmit = (form) => {
+    addWaterApi(form)
+      .then((newMarker) => {
+        setFountains((prevMarkers) => [...prevMarkers, newMarker]);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const requestUrl = useMemo(() => {
     let url = `${process.env.REACT_APP_BACKEND_URL}/fountains`;
@@ -62,9 +79,8 @@ const App = () => {
         setSelectedType={setSelectedType}
         selectedBorough={selectedBorough}
         setSelectedBorough={setSelectedBorough}
-      >
-        MENU
-      </Menu>
+      />
+      <WaterForm handleFormSubmit={handleFormSubmit} />
       <MapContainer
         center={[40.7157, -73.8667]}
         style={{ height: '100vh', width: '100wh' }}
@@ -89,8 +105,8 @@ const App = () => {
               icon={blueIcon}
             >
               <Popup>
-                {fountain.name} <br /> Details: {fountain.details} <br /> Type:{' '}
-                {fountain.type}
+                Name: {fountain.name} <br /> Details: {fountain.details} <br />{' '}
+                Type: {fountain.type}
               </Popup>
             </Marker>
           ))}

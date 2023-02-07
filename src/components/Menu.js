@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormControl } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 const Menu = ({
   selectedType,
@@ -11,26 +11,26 @@ const Menu = ({
     <Form>
       <Form.Group controlId='formTypeSelect'>
         <Form.Label>Type</Form.Label>
-        <FormControl
+        <Form.Control
           as='select'
           value={selectedType}
           onChange={(e) => setSelectedType(e.target.value)}
         >
-          <option value=''>ALL TYPES</option>
-          <option value='PUBLIC DRINKING FOUNTAIN'>
-            PARK DRINKING FOUNTAIN
+          <option value=''>All Types</option>
+          <option value='Park Drinking Fountain'>
+            Park Drinking Fountains
           </option>
-          <option value='PUBLIC FILL STATION'>PUBLIC FILL STATION</option>
-          <option value='PUBLIC HOSE BIB'>PUBLIC HOSE BIB</option>
-          <option value='PRIVATE HOSE BIB'>PRIVATE HOSE BIB</option>
-          <option value='NON-PROFIT HOSE BIB'>NON-PROFIT HOSE BIB</option>
-          <option value='PUBLIC ALT'>PUBLIC ALT</option>
-          <option value='NON-PROFIT ALT'>NON-PROFIT ALT</option>
-          <option value='PRIVATE ALT'>PRIVATE ALT</option>
-        </FormControl>
+          <option value='Public Fill Station'>Public Fill Station</option>
+          <option value='Public Hose Bib'>Public Hose Bib</option>
+          <option value='Private Hose Bib'>Private Hose Bib</option>
+          <option value='Non-Profit Hose Bib'>Non-Profit Hose Bib</option>
+          <option value='Public Alt'>Public Alt</option>
+          <option value='Non-Profit Alt'>Non-Profit Alt</option>
+          <option value='Private Alt'>Private Alt</option>
+        </Form.Control>
       </Form.Group>
       <Form.Group controlId='formBoroughSelect'>
-        <Form.Label>Borough</Form.Label>
+        <Form.Label>Boroughs</Form.Label>
         <Form.Control
           as='select'
           value={selectedBorough}
