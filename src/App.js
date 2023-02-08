@@ -10,16 +10,16 @@ import WaterForm from './components/WaterForm';
 import axios from 'axios';
 export const URL = process.env.REACT_APP_BACKEND_URL;
 
-export const getFountainsAPI = () => {
-  return axios
-    .get(`${process.env.REACT_APP_BACKEND_URL}/fountains`)
+// export const getFountainsAPI = () => {
+//   return axios
+//     .get(`${process.env.REACT_APP_BACKEND_URL}/fountains`)
 
-    .then((response) => {
-      return response.data;
-    })
+//     .then((response) => {
+//       return response.data;
+//     })
 
-    .catch((err) => console.log(err));
-};
+//     .catch((err) => console.log(err));
+// };
 
 const addWaterApi = (marker) => {
   return axios
@@ -74,16 +74,19 @@ const App = () => {
 
   return (
     <div>
-      <Menu
-        selectedType={selectedType}
-        setSelectedType={setSelectedType}
-        selectedBorough={selectedBorough}
-        setSelectedBorough={setSelectedBorough}
-      />
-      <WaterForm handleFormSubmit={handleFormSubmit} />
+      <div className='menu-form'>
+        <Menu
+          selectedType={selectedType}
+          setSelectedType={setSelectedType}
+          selectedBorough={selectedBorough}
+          setSelectedBorough={setSelectedBorough}
+        />
+        <WaterForm handleFormSubmit={handleFormSubmit} />
+      </div>
+
       <MapContainer
         center={[40.7157, -73.8667]}
-        style={{ height: '100vh', width: '100wh' }}
+        style={{ height: '80vh', width: '100vw' }}
         zoom={11}
         scrollWheelZoom={true}
       >

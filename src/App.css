@@ -1,3 +1,10 @@
+.menu-form {
+  height: 20vh;
+  width: 100vw;
+  overflow: auto;
+  padding: 10px;
+
+}
 
 .marker-cluster-small {
   background-color: #1192d7;
