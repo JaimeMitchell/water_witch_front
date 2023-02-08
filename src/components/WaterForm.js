@@ -7,148 +7,181 @@ import Row from 'react-bootstrap/Row';
 import '../App.css';
 
 const waterObj = {
+  latitude: 0,
+  longitude: 0,
+  address: '',
   name: '',
-  latitude: 40.7157,
-  longitude: -73.8667,
   details: '',
   borough: '',
   type: '',
-  phone: '',
+  phone: 0,
   email: '',
 };
 
 const WaterForm = (props) => {
   const [formData, setFormData] = useState(waterObj);
 
-  // HANDLE CHANGE MAY NOT BE NECESSARY HERE BUT KEEP IT FOR REFERENCE SEARCHBAR COMPONENT IF I HAVE TIME
   const handleChange = (event) => {
-    const fieldValue = event.target.value;
+    let fieldValue = event.target.value;
     const fieldName = event.target.name;
+
+    if (fieldName === 'latitude' || fieldName === 'longitude') {
+      fieldValue = parseFloat(fieldValue);
+    }
+    
     const newFormData = { ...formData, [fieldName]: fieldValue };
     setFormData(newFormData);
   };
+
+  //HANDLE SUBMIT
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(formData);
     props.handleFormSubmit(formData);
     setFormData(waterObj);
   };
 
   return (
     <Form className='water-container ' onSubmit={handleSubmit}>
-      <Col sm={10}>
-        <Form.Check
-          type='radio'
-          label='Park Drinking Fountain'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios1'
-          value={formData.type}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Public Fill Station'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios2'
-          value={formData.type}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Public Hose Bib'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios3'
-          value={formData.type}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Private Hose Bib'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios3'
-          value={formData.type}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Non-Profit Hose Bib'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios3'
-          value={formData.type}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Public Alt'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios3'
-          value={formData.type}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Non-Profit Alt'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios3'
-          value={formData.type}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Private Alt'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios3'
-          value={formData.type}
-          onChange={handleChange}
-        />
-      </Col>
-      <Col sm={10}>
-        <Form.Check
-          type='radio'
-          label='Manhattan'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios1'
-          value={formData.borough}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Brooklyn'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios2'
-          value={formData.borough}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Bronx'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios3'
-          value={formData.borough}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Queens'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios3'
-          value={formData.borough}
-          onChange={handleChange}
-        />
-        <Form.Check
-          type='radio'
-          label='Staten Island'
-          name='formHorizontalRadios'
-          id='formHorizontalRadios3'
-          value={formData.borough}
-          onChange={handleChange}
-        />
-      </Col>
-      <Form.Group as={Row} controlId='formHorizontalEmail'>
+      <Form.Group as={Row} controlId='latitude'>
+        <Form.Label column sm={2}>
+          Latitude:
+        </Form.Label>
+        <Col sm={10}>
+          <Form.Control
+            size='sm'
+            step="any"
+            type='number'
+            name='latitude'
+            value={formData.latitude}
+            onChange={handleChange}
+            autoFocus={false}
+            required
+          />
+        </Col>
+      </Form.Group>
+
+      <Form.Group as={Row} controlId='longitude'>
+        <Form.Label column sm={2}>
+          Longitude:
+        </Form.Label>
+        <Col sm={10}>
+          <Form.Control
+            size='sm'
+            step="any"
+            type='number'
+            name='longitude'
+            value={formData.longitude}
+            onChange={handleChange}
+            autoFocus={false}
+            required
+          />
+        </Col>
+      </Form.Group>
+
+      <Form.Group as={Row} controlId='type'>
+        <Form.Label column sm={2}>
+          Type:
+        </Form.Label>
+        <Col sm={10}>
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Park Drinking Fountain'
+            name='type'
+            id='ParkDrinkingFountain'
+            value='Park Drinking Fountain'
+            checked={formData.type === 'Park Drinking Fountain'}
+            onChange={handleChange}
+          />
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Public Fill Station'
+            name='type'
+            id='Public Fill Station'
+            value='Public Fill Station'
+            checked={formData.type === 'Public Fill Station'}
+            onChange={handleChange}
+          />
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Public Hose Bibb'
+            name='type'
+            id='Public Hose Bibb'
+            value='Public Hose Bibb'
+            checked={formData.type === 'Public Hose Bibb'}
+            onChange={handleChange}
+          />
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Non-Profit Hose Bibb'
+            name='type'
+            id='Non-Profit Hose Bibb'
+            value='None-Profit Hose Bibb'
+            checked={formData.type === 'Non-Profit Hose Bibb'}
+            onChange={handleChange}
+          />
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Private Hose Bibb'
+            name='type'
+            id='Private Hose Bibb'
+            value='Private Hose Bibb'
+            checked={formData.type === 'Private Hose Bibb'}
+            onChange={handleChange}
+          />
+
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Public gallon or less'
+            name='type'
+            id='Public gallon or lesst'
+            value='Public gallon or less'
+            checked={formData.type === 'Public gallon or less'}
+            onChange={handleChange}
+          />
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Non-Profit gallon or less'
+            name='type'
+            id='Non-Profit gallon or less'
+            value='None-Profit gallon or less'
+            checked={formData.type === 'Non-Profit gallon or less'}
+            onChange={handleChange}
+          />
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Private gallon or less'
+            name='type'
+            id='Private gallon or less'
+            value='Private gallon or less'
+            checked={formData.type === 'Private gallon or less'}
+            onChange={handleChange}
+          />
+        </Col>
+      </Form.Group>
+      <Form.Group as={Row} controlId='name'>
         <Form.Label column sm={2}>
           Name:
         </Form.Label>
         <Col sm={10}>
           <Form.Control
+            size='sm'
             type='text'
             placeholder='Location Name'
             name='name'
@@ -159,74 +192,87 @@ const WaterForm = (props) => {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} controlId='formHorizontalPassword'>
+      <Form.Group as={Row} controlId='address'>
         <Form.Label column sm={2}>
-          Latitude:
+          Address:
         </Form.Label>
         <Col sm={10}>
           <Form.Control
-            type='number'
-            placeholder='Latitude'
-            name='latitude'
-            value={formData.latitude}
-            onChange={handleChange}
-            required
-          />
-        </Col>
-      </Form.Group>
-
-      <Form.Group as={Row} controlId='formHorizontalPassword'>
-        <Form.Label column sm={2}>
-          Longitude:
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            type='number'
-            placeholder='Longitude'
-            name='longitude'
-            value={formData.longitude}
-            onChange={handleChange}
-            required
-          />
-        </Col>
-      </Form.Group>
-
-      <Form.Group as={Row} controlId='formHorizontalPassword'>
-        <Form.Label column sm={2}>
-          Phone:
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            type='phone'
-            placeholder='Phone Number'
-            name='phone'
-            value={formData.phone}
+            size='sm'
+            type='text'
+            placeholder='Address'
+            name='address'
+            value={formData.address}
             onChange={handleChange}
           />
         </Col>
       </Form.Group>
-
-      <Form.Group as={Row} controlId='formHorizontalPassword'>
-        <Form.Label column sm={2}>
-          Email:
-        </Form.Label>
+      <Form.Group controlId='borough'>
         <Col sm={10}>
-          <Form.Control
-            type='email'
-            placeholder='Email'
-            name='email'
-            value={formData.email}
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Manhattan'
+            name='borough'
+            id='Manhattan'
+            value='Manhattan'
+            checked={formData.borough === 'Manhattan'}
+            onChange={handleChange}
+          />
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Brooklyn'
+            name='borough'
+            id='Brooklyn'
+            value='Brooklyn'
+            checked={formData.borough === 'Brooklyn'}
+            onChange={handleChange}
+          />
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Bronx'
+            name='borough'
+            id='Bronx'
+            value='Bronx'
+            checked={formData.borough === 'Bronx'}
+            onChange={handleChange}
+          />
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Queens'
+            name='borough'
+            id='Queens'
+            value='Queens'
+            checked={formData.borough === 'Queens'}
+            onChange={handleChange}
+          />
+          <Form.Check
+            inline
+            size='sm'
+            type='radio'
+            label='Staten Island'
+            name='borough'
+            id='Staten Island'
+            value='Staten Island'
+            checked={formData.borough === 'Staten Island'}
             onChange={handleChange}
           />
         </Col>
       </Form.Group>
-
-      <Form.Group as={Row} controlId='formHorizontalPassword'>
+      <Form.Group as={Row} controlId='details'>
         <Form.Label column sm={2}>
           Details:
         </Form.Label>
         <Col sm={10}>
           <Form.Control
+            size='sm'
             type='text'
             placeholder='Additional Details'
             name='details'
@@ -236,29 +282,43 @@ const WaterForm = (props) => {
         </Col>
       </Form.Group>
 
-      <Button
-        className='water-container'
-        type='submit'
-        // disabled={
-        //   // Check if any of the required fields are missing
-        //   !formData.name ||
-        //   !formData.latitude ||
-        //   !formData.longitude ||
-        //   !formData.address ||
-        //   !formData.details ||
-        //   // Check if borough and type are not set to 1
-        //   formData.borough !== 1 ||
-        //   formData.type !== 1 ||
-        //   // Check if the length of the fields exceed the max length
-        //   formData.name.length > 100 ||
-        //   formData.address.length > 100 ||
-        //   formData.details.length > 300 ||
-        //   (formData.phone && formData.phone.length > 10) ||
-        //   (formData.email && formData.email.length > 50)
-        // }
-        value='Submit'
-        
-      ></Button>
+      <Form.Group as={Row} controlId='phone'>
+        <Form.Label column sm={2}>
+          Phone:
+        </Form.Label>
+        <Col sm={10}>
+          <Form.Control
+            size='sm'
+            type='number'
+            placeholder='Phone Number'
+            name='phone'
+            value={formData.phone}
+            onChange={handleChange}
+          />
+        </Col>
+      </Form.Group>
+
+      <Form.Group as={Row} controlId='email'>
+        <Form.Label column sm={2}>
+          Email:
+        </Form.Label>
+        <Col sm={10}>
+          <Form.Control
+            size='sm'
+            type='email'
+            placeholder='Email'
+            name='email'
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </Col>
+      </Form.Group>
+
+  
+
+      <Button className='water-container' type='submit' value='Submit'>
+        Submit
+      </Button>
     </Form>
   );
 };

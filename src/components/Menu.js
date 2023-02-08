@@ -21,12 +21,12 @@ const Menu = ({
             Park Drinking Fountains
           </option>
           <option value='Public Fill Station'>Public Fill Station</option>
-          <option value='Public Hose Bib'>Public Hose Bib</option>
-          <option value='Private Hose Bib'>Private Hose Bib</option>
-          <option value='Non-Profit Hose Bib'>Non-Profit Hose Bib</option>
-          <option value='Public Alt'>Public Alt</option>
-          <option value='Non-Profit Alt'>Non-Profit Alt</option>
-          <option value='Private Alt'>Private Alt</option>
+          <option value='Public Hose Bibb'>Public Hose Bib</option>
+          <option value='Private Hose Bibb'>Private Hose Bib</option>
+          <option value='Non-Profit Hose Bibb'>Non-Profit Hose Bib</option>
+          <option value='Public Gallon or Less'>Public Gallon or Less</option>
+          <option value='Non-Profit Gallon or Less'>Non-Profit Gallon or Less</option>
+          <option value='Private Gallon or Less'>Private Gallon or Less'</option>
         </Form.Control>
       </Form.Group>
       <Form.Group controlId='formBoroughSelect'>

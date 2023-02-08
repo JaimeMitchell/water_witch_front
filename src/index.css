@@ -1,6 +1,15 @@
-*{
+* {
     margin: 0;
-    padding:0 ;
+    padding: 0;
     box-sizing: border-box;
 }
+
 /* START WITH THIS WHEN THINGS GET WEIRD */
+@layer base {
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}

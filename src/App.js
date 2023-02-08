@@ -21,9 +21,9 @@ export const URL = process.env.REACT_APP_BACKEND_URL;
 //     .catch((err) => console.log(err));
 // };
 
-const addWaterApi = (marker) => {
+const addWaterApi = (fountain) => {
   return axios
-    .post(`${process.env.REACT_APP_BACKEND_URL}`, marker)
+    .post(`${process.env.REACT_APP_BACKEND_URL}/fountains`, fountain)
     .then((response) => response.data)
     .catch((err) => console.log(err));
 };
@@ -109,7 +109,7 @@ const App = () => {
             >
               <Popup>
                 Name: {fountain.name} <br /> Details: {fountain.details} <br />{' '}
-                Type: {fountain.type}
+                Type: {fountain.type} <br/> Lat/Lon{fountain.latitude} {fountain.longitude}
               </Popup>
             </Marker>
           ))}
