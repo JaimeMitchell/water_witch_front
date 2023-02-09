@@ -10,62 +10,22 @@ import WaterForm from './components/WaterForm';
 import axios from 'axios';
 export const URL = process.env.REACT_APP_BACKEND_URL;
 
-
-// Destructure and convert python naming convention to JSON.
-export const fountainApiToJson = (fountain) => {
-  const {
-    id,
-    latitude,
-    longitude,
-    address,
-    name,
-    details,
-    borough,
-    type,
-    phone,
-    email,
-  } = fountain;
-  return {
-    id,
-    latitude,
-    longitude,
-    address,
-    name,
-    details,
-    borough,
-    type,
-    phone,
-    email,
-  };
-};
-
-// IN CASE USING THIS LOGIC IN THE useEffect BELOW DOES NOT WORK.
-
-// const getFountainsAPI = async () => {
-//   try {
-//     const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/fountains`);
-//     return response.data.map(fountainApiToJson);
-//   } catch (err) {
-//     console.log(err);
-//     throw new Error('Can not get your fountains!');
-//   }
-// };
-
-// const addFountainApi = (fountain) => {
+// export const getFountainsAPI = () => {
 //   return axios
-//     .post(`${process.env.REACT_APP_BACKEND_URL}/fountains`, fountain)
-//     .then((response) => fountainApiToJson(response.data.fountain))
+//     .get(`${process.env.REACT_APP_BACKEND_URL}/fountains`)
+
+//     .then((response) => {
+//       return response.data;
+//     })
+
 //     .catch((err) => console.log(err));
 // };
 
-
-const addFountainApi = (fountain) => {
-  return (
-    axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/fountains`, fountain)
-      .then((response) => fountainApiToJson(response.data.fountain))
-      .catch((err) => console.log(err))
-  );
+const addWaterApi = (marker) => {
+  return axios
+    .post(`${process.env.REACT_APP_BACKEND_URL}`, marker)
+    .then((response) => response.data)
+    .catch((err) => console.log(err));
 };
 
 const blueIcon = new L.Icon({
@@ -85,9 +45,9 @@ const App = () => {
   const [fountains, setFountains] = useState([]);
 
   const handleFormSubmit = (form) => {
-    addFountainApi(form)
-      .then((newFountain) => {
-        setFountains((prevFountain) => [...prevFountain, newFountain]);
+    addWaterApi(form)
+      .then((newMarker) => {
+        setFountains((prevMarkers) => [...prevMarkers, newMarker]);
       })
       .catch((err) => console.log(err));
   };
@@ -105,11 +65,9 @@ const App = () => {
 
   useEffect(() => {
     const getFountains = async () => {
-
       const response = await axios.get(requestUrl);
-      setFountains(response.data.map(fountainApiToJson));
-      
-  };
+      setFountains(response.data);
+    };
 
     getFountains();
   }, [requestUrl]);
@@ -117,13 +75,13 @@ const App = () => {
   return (
     <div>
       <div className='menu-form'>
-        <Menu className='menu'
+        <Menu
           selectedType={selectedType}
           setSelectedType={setSelectedType}
           selectedBorough={selectedBorough}
           setSelectedBorough={setSelectedBorough}
         />
-        <WaterForm className='form' handleFormSubmit={handleFormSubmit} />
+        <WaterForm handleFormSubmit={handleFormSubmit} />
       </div>
 
       <MapContainer
@@ -151,8 +109,7 @@ const App = () => {
             >
               <Popup>
                 Name: {fountain.name} <br /> Details: {fountain.details} <br />{' '}
-                Type: {fountain.type} <br /> Lat/Lon {fountain.latitude}{' '}
-                {fountain.longitude}
+                Type: {fountain.type}
               </Popup>
             </Marker>
           ))}
