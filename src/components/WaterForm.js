@@ -26,6 +26,7 @@ const WaterForm = (props) => {
     }
 
     const newFormData = { ...formData, [fieldName]: fieldValue };
+
     setFormData(newFormData);
   };
 
@@ -114,6 +115,7 @@ const WaterForm = (props) => {
               value='Public Fill Station'
               checked={formData.type === 'Public Fill Station'}
               onChange={handleChange}
+              required
             />
             <label htmlFor='Public Fill Station'>Public Fill Staton</label>
 
@@ -125,6 +127,7 @@ const WaterForm = (props) => {
               value='Non-Profit Fill Station'
               checked={formData.type === 'Non-Profit Fill Station'}
               onChange={handleChange}
+              required
             />
             <label htmlFor='Non-Profit Fill Station'>
               Non-Profit Fill Station
@@ -137,6 +140,7 @@ const WaterForm = (props) => {
               value='Private Fill Station'
               checked={formData.type === 'Private Fill Station'}
               onChange={handleChange}
+              required
             />
             <label htmlFor='Private Fill Station'>Private Fill Station</label>
           </div>
@@ -149,6 +153,7 @@ const WaterForm = (props) => {
               value='Public Hose Bibb'
               checked={formData.type === 'Public Hose Bibb'}
               onChange={handleChange}
+              required
             />
             <label htmlFor='Public Hose Bibb'>Public Hose Bibb</label>
 
@@ -160,6 +165,7 @@ const WaterForm = (props) => {
               value='Non-Profit Hose Bibb'
               checked={formData.type === 'Non-Profit Hose Bibb'}
               onChange={handleChange}
+              required
             />
             <label htmlFor='Non-Profit Hose Bibb'>Non-Profit Hose Bibb</label>
 
@@ -171,6 +177,7 @@ const WaterForm = (props) => {
               value='Private Hose Bibb'
               checked={formData.type === 'Private Hose Bibb'}
               onChange={handleChange}
+              required
             />
             <label htmlFor='Private Hose Bibb'>Private Hose Bibb</label>
           </div>
@@ -183,6 +190,7 @@ const WaterForm = (props) => {
               value='Bottle'
               checked={formData.type === 'Bottle'}
               onChange={handleChange}
+              required
             />
             <label htmlFor='Bottle'>Bottle</label>
 
@@ -194,6 +202,7 @@ const WaterForm = (props) => {
               value='Park Drinking Fountain'
               checked={formData.type === 'Park Drinking Fountain'}
               onChange={handleChange}
+              required
             />
             <label htmlFor='Park Drinking Fountain'>
               Park Drinking Fountain
@@ -210,6 +219,7 @@ const WaterForm = (props) => {
             value='Manhattan'
             checked={formData.borough === 'Manhattan'}
             onChange={handleChange}
+            required
           />
           <label htmlFor='Manhattan'>Manhattan</label>
 
@@ -220,6 +230,7 @@ const WaterForm = (props) => {
             value='Brooklyn'
             checked={formData.borough === 'Brooklyn'}
             onChange={handleChange}
+            required
           />
           <label htmlFor='Brooklyn'>Brooklyn</label>
 
@@ -230,6 +241,7 @@ const WaterForm = (props) => {
             value='Bronx'
             checked={formData.borough === 'Bronx'}
             onChange={handleChange}
+            required
           />
           <label htmlFor='Bronx'>Bronx</label>
 
@@ -240,6 +252,7 @@ const WaterForm = (props) => {
             value='Queens'
             checked={formData.borough === 'Queens'}
             onChange={handleChange}
+            required
           />
           <label htmlFor='Queens'>Queens</label>
 
@@ -250,6 +263,7 @@ const WaterForm = (props) => {
             value='Staten Island'
             checked={formData.borough === 'Staten Island'}
             onChange={handleChange}
+            required
           />
           <label htmlFor='Staten Island'>Staten Island</label>
         </div>
