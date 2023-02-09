@@ -10,20 +10,9 @@ import WaterForm from './components/WaterForm';
 import axios from 'axios';
 export const URL = process.env.REACT_APP_BACKEND_URL;
 
-// export const getFountainsAPI = () => {
-//   return axios
-//     .get(`${process.env.REACT_APP_BACKEND_URL}/fountains`)
-
-//     .then((response) => {
-//       return response.data;
-//     })
-
-//     .catch((err) => console.log(err));
-// };
-
 const addWaterApi = (marker) => {
   return axios
-    .post(`${process.env.REACT_APP_BACKEND_URL}`, marker)
+    .post(`${process.env.REACT_APP_BACKEND_URL}/fountains`, marker)
     .then((response) => response.data)
     .catch((err) => console.log(err));
 };
@@ -76,12 +65,13 @@ const App = () => {
     <div>
       <div className='menu-form'>
         <Menu
+          className='menu'
           selectedType={selectedType}
           setSelectedType={setSelectedType}
           selectedBorough={selectedBorough}
           setSelectedBorough={setSelectedBorough}
         />
-        <WaterForm handleFormSubmit={handleFormSubmit} />
+        <WaterForm className='form' handleFormSubmit={handleFormSubmit} />
       </div>
 
       <MapContainer
@@ -108,8 +98,9 @@ const App = () => {
               icon={blueIcon}
             >
               <Popup>
-                Name: {fountain.name} <br /> Details: {fountain.details} <br />{' '}
-                Type: {fountain.type}
+                Name: {fountain.name} <br /> Details: {fountain.details} <br />
+                Type: {fountain.type} <br /> Lat/Lon:{' '}
+                {[fountain.latitude, fountain.longitude]}
               </Popup>
             </Marker>
           ))}

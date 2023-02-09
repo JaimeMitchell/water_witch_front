@@ -43,7 +43,7 @@ const WaterForm = (props) => {
         <div className='form-group'>
           <label htmlFor='latitude'>Latitude:</label>
           <input
-            type='number'
+            type='text'
             name='latitude'
             id='latitude'
             value={formData.latitude}
@@ -56,7 +56,7 @@ const WaterForm = (props) => {
         <div className='form-group'>
           <label htmlFor='longitude'>Longitude:</label>
           <input
-            type='number'
+            type='text'
             name='longitude'
             id='longitude'
             value={formData.longitude}
@@ -87,6 +87,7 @@ const WaterForm = (props) => {
             name='address'
             value={formData.address}
             onChange={handleChange}
+            required
           />
         </div>
 
@@ -99,6 +100,7 @@ const WaterForm = (props) => {
             name='details'
             value={formData.details}
             onChange={handleChange}
+            required
           />
         </div>
         <div>
