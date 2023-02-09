@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 import '../App.css';
 
 const waterObj = {
-  latitude: 0,
-  longitude: 0,
+  latitude: '',
+  longitude: '',
   address: '',
   name: '',
   details: '',
   borough: '',
   type: '',
-  phone: 0,
+  phone: '',
   email: '',
 };
 
@@ -29,7 +25,7 @@ const WaterForm = (props) => {
       fieldValue = parseFloat(fieldValue);
     }
     if (fieldName === 'phone') {
-      fieldValue = parseInt(fieldValue, 10);
+      fieldValue = parseInt(fieldValue);
     }
     const newFormData = { ...formData, [fieldName]: fieldValue };
     setFormData(newFormData);
@@ -38,267 +34,208 @@ const WaterForm = (props) => {
   //HANDLE SUBMIT
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
     props.handleFormSubmit(formData);
     setFormData(waterObj);
   };
 
   return (
     <form className='water-container' onSubmit={handleSubmit}>
-      <div class="form-group">
-        <label for="latitude">Latitude:</label>
+      <div className='form-group'>
+        <label htmlFor='latitude'>Latitude:</label>
         <input
-          size='sm'
-          step="any"
           type='number'
           name='latitude'
+          id='latitude'
           value={formData.latitude}
+          placeholder='Latitude'
           onChange={handleChange}
-          autoFocus={false}
           required
         />
       </div>
 
-      <div class="form-group">
-        <label for="longitude">Longitude:</label>
+      <div className='form-group'>
+        <label htmlFor='longitude'>Longitude:</label>
         <input
-          size='sm'
-          step="any"
           type='number'
           name='longitude'
+          id='longitude'
           value={formData.longitude}
+          placeholder='longitude'
           onChange={handleChange}
-          autoFocus={false}
           required
         />
       </div>
 
-      <Form.Group as={Row} controlId='longitude'>
-        <Form.Label column sm={2}>
-          Longitude:
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            size='sm'
-            type='number'
-            name='longitude'
-            value={formData.longitude}
-            onChange={handleChange}
-            required
-          />
-        </Col>
-      </Form.Group>
+      <div>
+        <label>Type:</label>
 
-      <Form.Group as={Row} controlId='type'>
-        <Form.Label column sm={2}>
-          Type:
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Check
-            size='sm'
-            type='radio'
-            label='Park Drinking Fountain'
-            name='type'
-            id='ParkDrinkingFountain'
-            value='Park Drinking Fountain'
-            checked={formData.type === 'Park Drinking Fountain'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            type='radio'
-            label='Public Fill Station'
-            name='type'
-            id='Public Fill Station'
-            value='Public Fill Station'
-            checked={formData.type === 'Public Fill Station'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            type='radio'
-            label='Public Hose Bibb'
-            name='type'
-            id='Public Hose Bibb'
-            value='Public Hose Bibb'
-            checked={formData.type === 'Public Hose Bibb'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            type='radio'
-            label='Non-Profit Hose Bibb'
-            name='type'
-            id='Non-Profit Hose Bibb'
-            value='None-Profit Hose Bibb'
-            checked={formData.type === 'Non-Profit Hose Bibb'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            type='radio'
-            label='Private Hose Bibb'
-            name='type'
-            id='Private Hose Bibb'
-            value='Private Hose Bibb'
-            checked={formData.type === 'Private Hose Bibb'}
-            onChange={handleChange}
-          />
+        <input
+          type='radio'
+          label='Public'
+          name='type'
+          id='Public'
+          value='Public'
+          checked={formData.type === 'Public'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Public'>Public</label>
 
-          <Form.Check
-            type='radio'
-            label='Public gallon or less'
-            name='type'
-            id='Public gallon or lesst'
-            value='Public gallon or less'
-            checked={formData.type === 'Public gallon or less'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            type='radio'
-            label='Non-Profit gallon or less'
-            name='type'
-            id='Non-Profit gallon or less'
-            value='None-Profit gallon or less'
-            checked={formData.type === 'Non-Profit gallon or less'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            type='radio'
-            label='Private gallon or less'
-            name='type'
-            id='Private gallon or less'
-            value='Private gallon or less'
-            checked={formData.type === 'Private gallon or less'}
-            onChange={handleChange}
-          />
-        </Col>
+        <input
+          type='radio'
+          label='Non-Profit'
+          name='type'
+          id='Non-Profit'
+          value='Non-Profit'
+          checked={formData.type === 'Non-Profit'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Non-Profit'>Non-Profit</label>
 
-        <Form.Group as={Row} controlId='name'>
-          <Form.Label column sm={2}>
-            Name:
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control
-              type='text'
-              placeholder='Location Name'
-              name='name'
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </Col>
-        </Form.Group>
+        <input
+          type='radio'
+          label='Private'
+          name='type'
+          id='Private'
+          value='Private'
+          checked={formData.type === 'Private'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Private'>Private</label>
 
-        <Form.Group as={Row} controlId='address'>
-          <Form.Label column sm={2}>
-            Address:
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control
-              type='text'
-              placeholder='Address'
-              name='address'
-              value={formData.address}
-              onChange={handleChange}
-            />
-          </Col>
-        </Form.Group>
+        <input
+          type='radio'
+          label='Bottle/Gallon'
+          name='type'
+          id='Bottle/Gallon'
+          value='Bottle/Gallon'
+          checked={formData.type === 'Bottle/Gallon'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Bottle/Gallon'>Bottle/Gallon</label>
 
-        <Col sm={10}>
-          <Form.Check
-            type='radio'
-            label='Manhattan'
-            name='borough'
-            id='Manhattan'
-            value='Manhattan'
-            checked={formData.borough === 'Manhattan'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            type='radio'
-            label='Brooklyn'
-            name='borough'
-            id='Brooklyn'
-            value='Brooklyn'
-            checked={formData.borough === 'Brooklyn'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            type='radio'
-            label='Bronx'
-            name='borough'
-            id='Bronx'
-            value='Bronx'
-            checked={formData.borough === 'Bronx'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            type='radio'
-            label='Queens'
-            name='borough'
-            id='Queens'
-            value='Queens'
-            checked={formData.borough === 'Queens'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            type='radio'
-            label='Staten Island'
-            name='borough'
-            id='Staten Island'
-            value='Staten Island'
-            checked={formData.borough === 'Staten Island'}
-            onChange={handleChange}
-          />
-        </Col>
-      </Form.Group>
-      <Form.Group as={Row} controlId='phone'>
-        <Form.Label column sm={2}>
-          Phone:
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            type=''
-            placeholder='Phone Number'
-            name='phone'
-            value={formData.phone}
-            onChange={handleChange}
-          />
-        </Col>
-      </Form.Group>
+        <input
+          type='radio'
+          label='Park Drinking Fountain'
+          name='type'
+          id='Park Drinking Fountain'
+          value='Park Drinking Fountain'
+          checked={formData.type === 'Park Drinking Fountain'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Park Drinking Fountain'>Park Drinking Fountain</label>
+      </div>
 
-      <Form.Group as={Row} controlId='email'>
-        <Form.Label column sm={2}>
-          Email:
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            size='sm'
-            type='email'
-            placeholder='Email'
-            name='email'
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </Col>
-      </Form.Group>
+      <div>
+        <label htmlFor='name'>Name:</label>
+        <input
+          type='text'
+          id='name'
+          placeholder='Location Name'
+          name='name'
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor='address'>Address:</label>
+        <input
+          type='text'
+          id='address'
+          placeholder='Address'
+          name='address'
+          value={formData.address}
+          onChange={handleChange}
+        />
+      </div>
 
-      <Form.Group as={Row} controlId='details'>
-        <Form.Label column sm={2}>
-          Details:
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            type='text'
-            placeholder='Additional Details'
-            name='details'
-            value={formData.details}
-            onChange={handleChange}
-          />
-        </Col>
-      </Form.Group>
+      <div>
+        <input
+          type='radio'
+          id='Manhattan'
+          name='borough'
+          value='Manhattan'
+          checked={formData.borough === 'Manhattan'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Manhattan'>Manhattan</label>
 
-      <Button className='water-container' type='submit' value='Submit'>
-        Submit
-      </Button>
-    </Form>
+        <input
+          type='radio'
+          id='Brooklyn'
+          name='borough'
+          value='Brooklyn'
+          checked={formData.borough === 'Brooklyn'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Brooklyn'>Brooklyn</label>
+
+        <input
+          type='radio'
+          id='Bronx'
+          name='borough'
+          value='Bronx'
+          checked={formData.borough === 'Bronx'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Bronx'>Bronx</label>
+
+        <input
+          type='radio'
+          id='Queens'
+          name='borough'
+          value='Queens'
+          checked={formData.borough === 'Queens'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Queens'>Queens</label>
+
+        <input
+          type='radio'
+          id='Staten Island'
+          name='borough'
+          value='Staten Island'
+          checked={formData.borough === 'Staten Island'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Staten Island'>Staten Island</label>
+      </div>
+
+      <div>
+        <label htmlFor='phone'>Phone:</label>
+        <input
+          type='text'
+          id='phone'
+          placeholder='Phone Number'
+          name='phone'
+          value={formData.phone}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor='email'>Email:</label>
+        <input
+          type='email'
+          id='email'
+          placeholder='Email'
+          name='email'
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor='details'>Details:</label>
+        <input
+          type='text'
+          id='details'
+          placeholder='Additional Details'
+          name='details'
+          value={formData.details}
+          onChange={handleChange}
+        />
+      </div>
+      <input className='water-container' type='submit' value='Submit' />
+    </form>
   );
 };
 
