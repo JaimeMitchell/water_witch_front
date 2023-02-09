@@ -1,9 +1,43 @@
+/* body{ display: grid;
+    
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+  grid-template-rows: max-content;
+  grid-template-areas:
+      "header header header header"
+      "main main main main"
+      "main main main main"
+      "main main main main"
+      "main main main main"
+      "footer footer footer nav";
+} */
+
 .menu-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+  grid-template-rows: max-content;
+  grid-template-areas: "menu form";
   height: 20vh;
   width: 100vw;
   overflow: auto;
   padding: 10px;
+  margin: 10px;
 
+}
+
+.menu {
+  display: flex;
+  grid-area: menu;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:space-between;
+}
+
+.form {
+  display: flex;
+  grid-area: form;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 
 .marker-cluster-small {

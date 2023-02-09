@@ -8,6 +8,8 @@ const Menu = ({
   setSelectedBorough,
 }) => {
   return (
+    <div>
+      <h4>Filters</h4>
     <Form>
       <Form.Group controlId='formTypeSelect'>
         <Form.Label>Type</Form.Label>
@@ -18,14 +20,12 @@ const Menu = ({
         >
           <option value=''>All Types</option>
           <option value='Public Fill Station'>Public Fill Station</option>
-          <option value='Non-Profit Fill Station'>Public Fill Station</option>
-          <option value='Private Fill Station'>Public Fill Station</option>
+          <option value='Non-Profit Fill Station'>Non-Profit Fill Station</option>
+          <option value='Private Fill Station'>Private Fill Station</option>
           <option value='Public Hose Bibb'>Public Hose Bib</option>
           <option value='Private Hose Bibb'>Private Hose Bib</option>
           <option value='Non-Profit Hose Bibb'>Non-Profit Hose Bib</option>
-          <option value='Public Gallon or Less'>Public Gallon or Less</option>
-          <option value='Non-Profit Gallon or Less'>Non-Profit Gallon or Less</option>
-          <option value='Private Gallon or Less'>Private Gallon or Less'</option>
+          <option value='Bottle'>Bottle</option>
           <option value='Park Drinking Fountain'>Park Drinking Fountains</option>
         </Form.Control>
       </Form.Group>
@@ -45,6 +45,7 @@ const Menu = ({
         </Form.Control>
       </Form.Group>
     </Form>
+    </div>
   );
 };
 

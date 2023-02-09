@@ -117,13 +117,13 @@ const App = () => {
   return (
     <div>
       <div className='menu-form'>
-        <Menu
+        <Menu className='menu'
           selectedType={selectedType}
           setSelectedType={setSelectedType}
           selectedBorough={selectedBorough}
           setSelectedBorough={setSelectedBorough}
         />
-        <WaterForm handleFormSubmit={handleFormSubmit} />
+        <WaterForm className='form' handleFormSubmit={handleFormSubmit} />
       </div>
 
       <MapContainer
