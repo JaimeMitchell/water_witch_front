@@ -4,12 +4,12 @@
     box-sizing: border-box;
 }
 
-/* START WITH THIS WHEN THINGS GET WEIRD */
-@layer base {
+/* START WITH THIS WHEN THINGS GET WEIRD...This actually may have broken the form sending a binary json page to the screen instead of react */
+/* @layer base {
 
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
     }
-}
+} */

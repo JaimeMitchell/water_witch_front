@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../App.css';
 
-const waterObj = {
+const fountainObj = {
   latitude: '',
   longitude: '',
   address: '',
@@ -14,8 +14,9 @@ const waterObj = {
   email: '',
 };
 
+
 const WaterForm = (props) => {
-  const [formData, setFormData] = useState(waterObj);
+  const [formData, setFormData] = useState(fountainObj);
 
   const handleChange = (event) => {
     let fieldValue = event.target.value;
@@ -35,7 +36,7 @@ const WaterForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.handleFormSubmit(formData);
-    setFormData(waterObj);
+    setFormData(fountainObj);
   };
 
   return (
@@ -71,25 +72,69 @@ const WaterForm = (props) => {
 
         <input
           type='radio'
-          label='Public'
+          label='Public Fill Station'
           name='type'
-          id='Public'
-          value='Public'
-          checked={formData.type === 'Public'}
+          id='Public Fill Station'
+          value='Public Fill Station'
+          checked={formData.type === 'Public Fill Station'}
           onChange={handleChange}
         />
-        <label htmlFor='Public'>Public</label>
+        <label htmlFor='Public Fill Station'>Public Fill Staton</label>
 
         <input
           type='radio'
-          label='Non-Profit'
+          label='Non-Profit Fill Station'
           name='type'
-          id='Non-Profit'
-          value='Non-Profit'
-          checked={formData.type === 'Non-Profit'}
+          id='Non-Profit Fill Station'
+          value='Non-Profit Fill Station'
+          checked={formData.type === 'Non-Profit Fill Station'}
           onChange={handleChange}
         />
-        <label htmlFor='Non-Profit'>Non-Profit</label>
+        <label htmlFor='Non-Profit'>Non-Profit Fill Station</label>
+
+        <input
+          type='radio'
+          label='Private Fill Station'
+          name='type'
+          id='Private Fill Station'
+          value='Private Fill Station'
+          checked={formData.type === 'Private Fill Station'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Private Fill Station'>Private Fill Station</label>
+
+        <input
+          type='radio'
+          label='Public Hose Bibb'
+          name='type'
+          id='Public Hose Bibb'
+          value='Public Hose Bibb'
+          checked={formData.type === 'Public Hose Bibb'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Public Hose Bibb'>Public Hose Bibb</label>
+
+        <input
+          type='radio'
+          label='Non-Profit Hose Bibb'
+          name='type'
+          id='Non-Profit Hose Bibb'
+          value='Non-Profit Hose Bibb'
+          checked={formData.type === 'Non-Profit Hose Bibb'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Non-Profit Hose Bibb'>Non-Profit Hose Bibb</label>
+
+        <input
+          type='radio'
+          label='Private Hose Bibb'
+          name='type'
+          id='Private Hose Bibb'
+          value='Private Hose Bibb'
+          checked={formData.type === 'Private Hose Bibb'}
+          onChange={handleChange}
+        />
+        <label htmlFor='Private Hose Bibb'>Private Hose Bibb</label>
 
         <input
           type='radio'

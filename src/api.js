@@ -4,13 +4,36 @@ export const URL=process.env.REACT_APP_BACKEND_URL
 
 //POST FOR FORM
 
-export const addWaterApi = marker => {
+
+export const addFountainApi = marker => {
   return (
     axios.post(`${process.env.REACT_APP_BACKEND_URL}`, marker)
     .then(response =>response.data)
     .catch(err => console.log(err))
   );
 };
+
+
+// const addFountain = (fountain) => {
+//   return (
+//     axios
+//       .post(`${process.env.REACT_APP_BACKEND_URL}/fountains`, fountain)
+//       .then((response) => fountainApiToJson(response.data.fountain))
+//       .catch((err) => console.log(err))
+//   );
+// };
+
+// export const addCardAPI = (card, boardId) => {
+  //   return axios
+  //     .post(`${REACT_APP_BACKEND_URL}/boards/${boardId}/cards`, card)
+  //     .then((response) => {
+  //
+  //       return response.data.cards.map((card)=>{
+  //         return cardApiToJson(cards)
+  //       });
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
 // Send a POST request
 axios({
