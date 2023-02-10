@@ -88,7 +88,6 @@ const WaterForm = (props) => {
             name='address'
             value={formData.address}
             onChange={handleChange}
-            required
           />
         </div>
 
