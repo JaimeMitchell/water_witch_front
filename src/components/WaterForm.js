@@ -20,20 +20,32 @@ const WaterForm = (props) => {
   const handleChange = (event) => {
     let fieldValue = event.target.value;
     const fieldName = event.target.name;
-
     if (fieldName === 'latitude' || fieldName === 'longitude') {
-      fieldValue = parseFloat(fieldValue);
+      try {
+        fieldValue = parseFloat(fieldValue);
+        if (isNaN(fieldValue)) {
+          fieldValue = '';
+        }
+      } catch (exception) {
+        fieldValue = '';
+      }
     }
-
+    console.log(fieldName, fieldValue);
     const newFormData = { ...formData, [fieldName]: fieldValue };
-
     setFormData(newFormData);
   };
 
   //HANDLE SUBMIT
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleFormSubmit(formData);
+    const latitude = parseFloat(formData.latitude);
+    const longitude = parseFloat(formData.longitude);
+    const newFormData = {
+      ...formData,
+      latitude,
+      longitude,
+    };
+    props.handleFormSubmit(newFormData);
     setFormData(fountainObj);
   };
 
