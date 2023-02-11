@@ -65,6 +65,7 @@ const App = () => {
   const [selectedBorough, setSelectedBorough] = useState('');
   const [fountains, setFountains] = useState([]);
   const [icon, setIcon] = useState(blueIcon);
+  const [selectedOption, setSelectedOption] = useState('map');
 
   const handleFormSubmit = (form) => {
     addFountainAPI(form)
@@ -99,35 +100,15 @@ const App = () => {
       selectedType === 'Park Drinking Fountain'
     ) {
       setIcon(blueIcon);
-    } else if (selectedType === 'Non-Profit Hose Bibb') {
+    } else if (
+      selectedType === 'Non-Profit Fill Station' ||
+      selectedType === 'Non-Profit Hose Bibb'
+    ) {
       setIcon(greenIcon);
-    } else if (selectedType === 'Other') {
+    } else if (selectedType === 'Bottle') {
       setIcon(yellowIcon);
     }
   }, [selectedType]);
-  // const filterIcon = (selectedType) => {
-  //   if (selectedType === '') {
-  //     return blueIcon;
-  //   } else if (
-  //     selectedType === 'Private Fill Station' ||
-  //     selectedType === 'Private Hose Bibb'
-  //   ) {
-  //     return redIcon;
-  //   } else if (
-  //     selectedType === 'Public Fill Station' ||
-  //     selectedType === 'Public Hose Bibb' ||
-  //     selectedType === 'Park Drinking Fountain'
-  //   ) {
-  //     return blueIcon;
-  //   } else if (
-  //     selectedType === 'Non-Profit Hose Bibb' ||
-  //     selectedType === 'Public Fill Station'
-  //   ) {
-  //     return greenIcon;
-  //   } else if (selectedType === 'Bottle') {
-  //     return yellowIcon;
-  //   }
-  // };
 
   //Refresh fountains on url change
   useEffect(() => {
@@ -141,7 +122,37 @@ const App = () => {
 
   return (
     <div>
-      <div className='menu-form'>
+      <div>
+        <select
+          value={selectedOption}
+          onChange={(e) => setSelectedOption(e.target.value)}
+        >
+          <option value='map'>Show Map</option>
+          <option value='menu'>Filter</option>
+          <option value='form'>Add Water Location</option>
+        </select>
+      </div>
+      <div>
+        {selectedOption === 'map' && (
+          <MapContainer className='fullscreen-component'></MapContainer>
+        )}
+        {selectedOption === 'form' && (
+          <WaterForm
+            className='fullscreen-component form'
+            handleFormSubmit={handleFormSubmit}
+          />
+        )}
+        {selectedOption === 'menu' && (
+          <Menu
+            className='fullscreen-component menu'
+            selectedType={selectedType}
+            setSelectedType={setSelectedType}
+            selectedBorough={selectedBorough}
+            setSelectedBorough={setSelectedBorough}
+          />
+        )}
+      </div>
+      {/* <div className='menu-form'>
         <Menu
           className='menu'
           selectedType={selectedType}
@@ -150,11 +161,11 @@ const App = () => {
           setSelectedBorough={setSelectedBorough}
         />
         <WaterForm className='form' handleFormSubmit={handleFormSubmit} />
-      </div>
+      </div> */}
 
       <MapContainer
         center={[40.7157, -73.8667]}
-        style={{ height: '80vh', width: '100vw' }}
+        style={{ height: '100vh', width: '100vw' }}
         zoom={11}
         scrollWheelZoom={true}
       >
