@@ -8,14 +8,6 @@ import LocationMarker from './components/LocationMarker';
 import Menu from './components/Menu';
 import WaterForm from './components/WaterForm';
 import axios from 'axios';
-export const URL = process.env.REACT_APP_BACKEND_URL;
-
-const addWaterApi = (marker) => {
-  return axios
-    .post(`${process.env.REACT_APP_BACKEND_URL}/fountains`, marker)
-    .then((response) => response.data)
-    .catch((err) => console.log(err));
-};
 
 const blueIcon = new L.Icon({
   iconUrl:
@@ -28,13 +20,54 @@ const blueIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
+const greenIcon = new L.Icon({
+  iconUrl:
+    'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+  shadowUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+
+const redIcon = new L.Icon({
+  iconUrl:
+    'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+  shadowUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+
+const yellowIcon = new L.Icon({
+  iconUrl:
+    'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+  shadowUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+
+const addFountainAPI = (marker) => {
+  return axios
+    .post(`${process.env.REACT_APP_BACKEND_URL}/fountains`, marker)
+    .then((response) => response.data)
+    .catch((err) => console.log(err));
+};
+
 const App = () => {
   const [selectedType, setSelectedType] = useState('');
   const [selectedBorough, setSelectedBorough] = useState('');
   const [fountains, setFountains] = useState([]);
+  const [icon, setIcon] = useState(blueIcon);
 
   const handleFormSubmit = (form) => {
-    addWaterApi(form)
+    addFountainAPI(form)
       .then((newMarker) => {
         setFountains((prevMarkers) => [...prevMarkers, newMarker]);
       })
@@ -52,6 +85,51 @@ const App = () => {
     return url;
   }, [selectedType, selectedBorough]);
 
+  useEffect(() => {
+    if (selectedType === '') {
+      setIcon(blueIcon);
+    } else if (
+      selectedType === 'Private Fill Station' ||
+      selectedType === 'Private Hose Bibb'
+    ) {
+      setIcon(redIcon);
+    } else if (
+      selectedType === 'Public Fill Station' ||
+      selectedType === 'Public Hose Bibb' ||
+      selectedType === 'Park Drinking Fountain'
+    ) {
+      setIcon(blueIcon);
+    } else if (selectedType === 'Non-Profit Hose Bibb') {
+      setIcon(greenIcon);
+    } else if (selectedType === 'Other') {
+      setIcon(yellowIcon);
+    }
+  }, [selectedType]);
+  // const filterIcon = (selectedType) => {
+  //   if (selectedType === '') {
+  //     return blueIcon;
+  //   } else if (
+  //     selectedType === 'Private Fill Station' ||
+  //     selectedType === 'Private Hose Bibb'
+  //   ) {
+  //     return redIcon;
+  //   } else if (
+  //     selectedType === 'Public Fill Station' ||
+  //     selectedType === 'Public Hose Bibb' ||
+  //     selectedType === 'Park Drinking Fountain'
+  //   ) {
+  //     return blueIcon;
+  //   } else if (
+  //     selectedType === 'Non-Profit Hose Bibb' ||
+  //     selectedType === 'Public Fill Station'
+  //   ) {
+  //     return greenIcon;
+  //   } else if (selectedType === 'Bottle') {
+  //     return yellowIcon;
+  //   }
+  // };
+
+  //Refresh fountains on url change
   useEffect(() => {
     const getFountains = async () => {
       const response = await axios.get(requestUrl);
@@ -84,6 +162,7 @@ const App = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
+        <LocationMarker />
         <GeoJSON data={fountains} />
         <MarkerClusterGroup
           chunkedLoading
@@ -95,16 +174,16 @@ const App = () => {
             <Marker
               key={fountain.id}
               position={[fountain.latitude, fountain.longitude]}
-              icon={blueIcon}
+              icon={icon}
             >
               <Popup>
                 Name: {fountain.name} <br /> Details: {fountain.details} <br />
-                Type: {fountain.type} <br /> Lat/Lon:{' '}
-                {[fountain.latitude, fountain.longitude]}
+                Type: {fountain.type} <br /> Lat/Lon: <br />
+                {fountain.latitude} <br />
+                {fountain.longitude}
               </Popup>
             </Marker>
           ))}
-          <LocationMarker />
         </MarkerClusterGroup>
       </MapContainer>
     </div>
