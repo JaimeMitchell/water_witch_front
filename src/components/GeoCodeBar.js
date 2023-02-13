@@ -14,8 +14,12 @@ const GeoCodeBar = ({ apiKey }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `https://api.locationiq.com/v1/autocomplete?key=${apiKey}&q=${query}&limit=5&dedupe=1`
+      `https://api.locationiq.com/v1/autocomplete?key=${apiKey}&q=${query}&limit=5&countrycodes=use&dedupe=1`
+
+      //Query if loading LOCATIONIQ STATIC MAP
+      //<img src='https://maps.locationiq.com/v3/staticmap?key=${apiKey}&center=<latitude>,<longitude>&zoom=<zoom>&size=<width>x<height>&format=&markers=icon:<icon>|<latitude>,<longitude>&markers=icon:<icon>|<latitude>,<longitude>'>
     );
+
     setResults(
       response.data.map(({ lat, lon, display_name }) => ({
         label: display_name,
@@ -37,8 +41,14 @@ const GeoCodeBar = ({ apiKey }) => {
         <button type='submit'>Search</button>
         <ul>
           {results.map(({ label, x, y }, index) => (
-            <li key={index} onClick={() => setSelectedResult({ label, x, y })}>
+            <li className='search-results' key={index} onClick={() => setSelectedResult({ label, x, y })}>
+              <br />
               {label}
+              <br />
+              {x}
+              <br />
+              {y}
+              <br />
             </li>
           ))}
         </ul>
@@ -46,7 +56,11 @@ const GeoCodeBar = ({ apiKey }) => {
       {selectedResult && (
         <MapContainer>
           <Marker position={[selectedResult.x, selectedResult.y]}>
-            <Popup>{selectedResult.label}</Popup>
+            <Popup>
+              {selectedResult.label}
+              <br />
+              {[selectedResult.x, selectedResult.y]}
+            </Popup>
           </Marker>
         </MapContainer>
       )}

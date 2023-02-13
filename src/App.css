@@ -42,6 +42,9 @@
   align-items: flex-end;
   justify-content: space-between;
 }
+.search-results{
+  text-align: center;
+}
 
 .marker-cluster-small {
   background-color: #1192d7;
