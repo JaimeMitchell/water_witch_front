@@ -56,7 +56,8 @@ const WaterForm = (props) => {
         <div className='form-group'>
           <label htmlFor='latitude'>Latitude:</label>
           <input
-            type='text'
+            type='number'
+            step='0.000001'
             name='latitude'
             id='latitude'
             value={formData.latitude}
@@ -69,7 +70,8 @@ const WaterForm = (props) => {
         <div className='form-group'>
           <label htmlFor='longitude'>Longitude:</label>
           <input
-            type='text'
+            type='number'
+            step='0.000001'
             name='longitude'
             id='longitude'
             value={formData.longitude}
