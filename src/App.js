@@ -122,7 +122,7 @@ const App = () => {
     getFountains();
   }, [requestUrl]);
 
-  const apiKey = 'pk.2ed7f8e36711bc4adaa746f1efdc0626';
+  const apiKey = process.env.REACT_APP_LOC;
   return (
     <div>
       <div>
