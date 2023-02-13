@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 
-const Menu = ({
+const FilterMenu = ({
   selectedType,
   setSelectedType,
   selectedBorough,
@@ -53,4 +53,4 @@ const Menu = ({
   );
 };
 
-export default Menu;
+export default FilterMenu;

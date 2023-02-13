@@ -6,7 +6,7 @@ import MarkerClusterGroup from 'react-leaflet-cluster';
 import './App.css';
 import GeoCodeBar from './components/GeoCodeBar';
 import LocationMarker from './components/LocationMarker';
-import Menu from './components/Menu';
+import FilterMenu from './components/FilterMenu';
 import WaterForm from './components/WaterForm';
 import axios from 'axios';
 
@@ -124,7 +124,6 @@ const App = () => {
   const apiKey = 'pk.2ed7f8e36711bc4adaa746f1efdc0626';
   return (
     <div>
-      <GeoCodeBar apiKey={apiKey} />
       <div>
         <select
           value={selectedOption}
@@ -132,12 +131,17 @@ const App = () => {
         >
           <option value='map'>Show Map</option>
           <option value='menu'>Filter</option>
+          <option value='search'>Search</option>
           <option value='form'>Add Water Location</option>
         </select>
       </div>
+
       <div>
         {selectedOption === 'map' && (
-          <MapContainer className='fullscreen-component'></MapContainer>
+          <MapContainer className='fullscreen-component' />
+        )}
+        {selectedOption === 'search' && (
+          <GeoCodeBar apiKey={apiKey} className='fullscreen-component' />
         )}
         {selectedOption === 'form' && (
           <WaterForm
@@ -146,7 +150,7 @@ const App = () => {
           />
         )}
         {selectedOption === 'menu' && (
-          <Menu
+          <FilterMenu
             className='fullscreen-component menu'
             selectedType={selectedType}
             setSelectedType={setSelectedType}
