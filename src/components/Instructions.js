@@ -56,6 +56,12 @@ const Instructions = () => {
         the form to add dependable water-sources that you vet. Thank you for any
         dousing you do!
       </p>
+      <br />
+      <h3>Link to a common water key</h3>
+      <a href='https://www.homedepot.com/p/DANCO-5-16-in-Sillcock-Key-80132/300754237?source=shoppingads&locale=en-US&srsltid=Ad5pg_F64O-0nudNoELPfkPhe8JyAIfoogLi2s25PwPYAFMZ6974fE82sX4'>
+        {' '}
+        Nope, I'm not making a profit if you click on this
+      </a>
     </article>
   );
 };
