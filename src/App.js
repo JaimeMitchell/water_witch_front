@@ -4,6 +4,7 @@ import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 
 import './App.css';
+import Instructions from './components/Instructions';
 import GeoCodeBar from './components/GeoCodeBar';
 import LocationMarker from './components/LocationMarker';
 import FilterMenu from './components/FilterMenu';
@@ -129,6 +130,7 @@ const App = () => {
           value={selectedOption}
           onChange={(e) => setSelectedOption(e.target.value)}
         >
+          <option value='instructions'>Read Carefully Before Use</option>
           <option value='map'>Show Map</option>
           <option value='menu'>Filter</option>
           <option value='search'>Search</option>
@@ -139,6 +141,9 @@ const App = () => {
       <div>
         {selectedOption === 'map' && (
           <MapContainer className='fullscreen-component' />
+        )}
+        {selectedOption === 'instructions' && (
+          <Instructions className='fullscreen-component' />
         )}
         {selectedOption === 'search' && (
           <GeoCodeBar apiKey={apiKey} className='fullscreen-component' />
