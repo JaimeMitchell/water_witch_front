@@ -4,6 +4,7 @@ import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 
 import './App.css';
+import GeoCodeBar from './components/GeoCodeBar';
 import LocationMarker from './components/LocationMarker';
 import Menu from './components/Menu';
 import WaterForm from './components/WaterForm';
@@ -120,8 +121,10 @@ const App = () => {
     getFountains();
   }, [requestUrl]);
 
+  const apiKey = 'pk.2ed7f8e36711bc4adaa746f1efdc0626';
   return (
     <div>
+      <GeoCodeBar apiKey={apiKey} />
       <div>
         <select
           value={selectedOption}
@@ -152,16 +155,6 @@ const App = () => {
           />
         )}
       </div>
-      {/* <div className='menu-form'>
-        <Menu
-          className='menu'
-          selectedType={selectedType}
-          setSelectedType={setSelectedType}
-          selectedBorough={selectedBorough}
-          setSelectedBorough={setSelectedBorough}
-        />
-        <WaterForm className='form' handleFormSubmit={handleFormSubmit} />
-      </div> */}
 
       <MapContainer
         center={[40.7157, -73.8667]}
