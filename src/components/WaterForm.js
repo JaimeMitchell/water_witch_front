@@ -57,7 +57,7 @@ const WaterForm = (props) => {
           <label htmlFor='latitude'>Latitude:</label>
           <input
             type='number'
-            step='0.000001'
+            step='0.0000001'
             name='latitude'
             id='latitude'
             value={formData.latitude}
@@ -71,7 +71,7 @@ const WaterForm = (props) => {
           <label htmlFor='longitude'>Longitude:</label>
           <input
             type='number'
-            step='0.000001'
+            step='0.0000001'
             name='longitude'
             id='longitude'
             value={formData.longitude}
