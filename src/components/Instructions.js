@@ -50,7 +50,7 @@ const Instructions = () => {
         </a>{' '}
         <br />
         <br />
-        It will only take me one complaint, which I'll follow up on, before
+        It will only take me one complaint, which I'll follow up on, before I this becomes another app you have to make an account to use.
         <br />
         <li>
           This will give me access to your location and other relevant info that
