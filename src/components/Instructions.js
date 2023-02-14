@@ -2,8 +2,8 @@ import React from 'react';
 const Instructions = () => {
   return (
     <div className='instructions'>
-      <h1>WaterWitch </h1>
-      <p className='script'>
+      <br />
+      <p className='wic'>
         Wiccan Rede, an ethical code that states, “If it harm none, do what you
         will,” <br />
         ...but
@@ -66,11 +66,12 @@ const Instructions = () => {
           which I will use to keep track of who is using my app, what water
           sources they are near, interested in, so on.
           <br />
-          Right now this is just a database of water sources, not people.
+          Right now this is just a database of potable water sources, not
+          people.
           <br />
         </li>
         <br />
-        <p className='script'>Thank you for any dousing you do!</p>
+        <p className='wic'>Thank you for any dousing you do!</p>
       </ul>
       <br />
     </div>

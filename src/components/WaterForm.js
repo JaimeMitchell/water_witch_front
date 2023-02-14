@@ -51,10 +51,10 @@ const WaterForm = (props) => {
 
   return (
     <div>
-      <h4>Add Water Location</h4>
+      <h3>Add Water Location</h3>
       <form className='water-container' onSubmit={handleSubmit}>
         <div className='form-group'>
-          <label htmlFor='latitude'>Latitude:</label>
+          <label htmlFor='latitude'>Latitude: </label>
           <input
             type='number'
             step='0.0000001'
@@ -68,7 +68,7 @@ const WaterForm = (props) => {
         </div>
 
         <div className='form-group'>
-          <label htmlFor='longitude'>Longitude:</label>
+          <label htmlFor='longitude'>Longitude </label>
           <input
             type='number'
             step='0.0000001'
@@ -81,7 +81,7 @@ const WaterForm = (props) => {
           />
         </div>
         <div>
-          <label htmlFor='name'>Name:</label>
+          <label htmlFor='name'>Name </label>
           <input
             type='text'
             id='name'
@@ -94,7 +94,7 @@ const WaterForm = (props) => {
         </div>
 
         <div>
-          <label htmlFor='address'>Address:</label>
+          <label htmlFor='address'>Address </label>
           <input
             type='text'
             id='address'
@@ -106,7 +106,7 @@ const WaterForm = (props) => {
         </div>
 
         <div>
-          <label htmlFor='details'>Details:</label>
+          <label htmlFor='details'>Details: </label>
           <input
             type='text'
             id='details'
@@ -117,83 +117,101 @@ const WaterForm = (props) => {
             required
           />
         </div>
+        <br />
         <div>
-          <label>Type Required:</label>
-          <div>
-            <input
-              type='radio'
-              label='Public Fill Station'
-              name='type'
-              id='Public Fill Station'
-              value='Public Fill Station'
-              checked={formData.type === 'Public Fill Station'}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor='Public Fill Station'>Public Fill Staton</label>
-
-            <input
-              type='radio'
-              label='Non-Profit Fill Station'
-              name='type'
-              id='Non-Profit Fill Station'
-              value='Non-Profit Fill Station'
-              checked={formData.type === 'Non-Profit Fill Station'}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor='Non-Profit Fill Station'>
-              Non-Profit Fill Station
-            </label>
-            <input
-              type='radio'
-              label='Private Fill Station'
-              name='type'
-              id='Private Fill Station'
-              value='Private Fill Station'
-              checked={formData.type === 'Private Fill Station'}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor='Private Fill Station'>Private Fill Station</label>
-          </div>
-          <div>
-            <input
-              type='radio'
-              label='Public Hose Bibb'
-              name='type'
-              id='Public Hose Bibb'
-              value='Public Hose Bibb'
-              checked={formData.type === 'Public Hose Bibb'}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor='Public Hose Bibb'>Public Hose Bibb</label>
-
-            <input
-              type='radio'
-              label='Non-Profit Hose Bibb'
-              name='type'
-              id='Non-Profit Hose Bibb'
-              value='Non-Profit Hose Bibb'
-              checked={formData.type === 'Non-Profit Hose Bibb'}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor='Non-Profit Hose Bibb'>Non-Profit Hose Bibb</label>
-
-            <input
-              type='radio'
-              label='Private Hose Bibb'
-              name='type'
-              id='Private Hose Bibb'
-              value='Private Hose Bibb'
-              checked={formData.type === 'Private Hose Bibb'}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor='Private Hose Bibb'>Private Hose Bibb</label>
-          </div>
+          <label>
+            <h3> Type Required:</h3>
+          </label>
+          <input
+            type='radio'
+            label='Public Fill Station'
+            name='type'
+            id='Public Fill Station'
+            value='Public Fill Station'
+            checked={formData.type === 'Public Fill Station'}
+            onChange={handleChange}
+            required
+          />
+          <label htmlFor='Public Fill Station'> Public Fill Staton</label>
+          <br />
+          <input
+            type='radio'
+            label='Public Hose Bibb'
+            name='type'
+            id='Public Hose Bibb'
+            value='Public Hose Bibb'
+            checked={formData.type === 'Public Hose Bibb'}
+            onChange={handleChange}
+            required
+          />
+          <label htmlFor='Public Hose Bibb'> Public Hose Bibb</label>
+          <br />
+          <input
+            type='radio'
+            label='Park Drinking Fountain'
+            name='type'
+            id='Park Drinking Fountain'
+            value='Park Drinking Fountain'
+            checked={formData.type === 'Park Drinking Fountain'}
+            onChange={handleChange}
+            required
+          />
+          <label htmlFor='Park Drinking Fountain'>
+            {' '}
+            Park Drinking Fountain
+          </label>
+          <br />
+          <input
+            type='radio'
+            label='Non-Profit Fill Station'
+            name='type'
+            id='Non-Profit Fill Station'
+            value='Non-Profit Fill Station'
+            checked={formData.type === 'Non-Profit Fill Station'}
+            onChange={handleChange}
+            required
+          />
+          <label htmlFor='Non-Profit Fill Station'>
+            {' '}
+            Non-Profit Fill Station
+          </label>
+          <br />
+          <input
+            type='radio'
+            label='Non-Profit Hose Bibb'
+            name='type'
+            id='Non-Profit Hose Bibb'
+            value='Non-Profit Hose Bibb'
+            checked={formData.type === 'Non-Profit Hose Bibb'}
+            onChange={handleChange}
+            required
+          />
+          <label htmlFor='Non-Profit Hose Bibb'> Non-Profit Hose Bibb</label>
+          <br />
+          <input
+            type='radio'
+            label='Private Fill Station'
+            name='type'
+            id='Private Fill Station'
+            value='Private Fill Station'
+            checked={formData.type === 'Private Fill Station'}
+            onChange={handleChange}
+            required
+          />
+          <label htmlFor='Private Fill Station'> Private Fill Station</label>
+          <br />
+          <input
+            type='radio'
+            label='Private Hose Bibb'
+            name='type'
+            id='Private Hose Bibb'
+            value='Private Hose Bibb'
+            checked={formData.type === 'Private Hose Bibb'}
+            onChange={handleChange}
+            required
+          />
+          <label htmlFor='Private Hose Bibb'> Private Hose Bibb</label>
+          <br />{' '}
           <div>
             <input
               type='radio'
@@ -205,26 +223,15 @@ const WaterForm = (props) => {
               onChange={handleChange}
               required
             />
-            <label htmlFor='Bottle'>Bottle</label>
-
-            <input
-              type='radio'
-              label='Park Drinking Fountain'
-              name='type'
-              id='Park Drinking Fountain'
-              value='Park Drinking Fountain'
-              checked={formData.type === 'Park Drinking Fountain'}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor='Park Drinking Fountain'>
-              Park Drinking Fountain
-            </label>
-          </div>{' '}
+            <label htmlFor='Bottle'> Bottle</label>
+          </div>
         </div>
-
+        <br />
         <div>
-          <label>Borough Required:</label>
+          <label>
+            <h3> Borough Required:</h3>
+          </label>
+
           <input
             type='radio'
             id='Manhattan'
@@ -234,8 +241,8 @@ const WaterForm = (props) => {
             onChange={handleChange}
             required
           />
-          <label htmlFor='Manhattan'>Manhattan</label>
-
+          <label htmlFor='Manhattan'> Manhattan</label>
+          <br />
           <input
             type='radio'
             id='Brooklyn'
@@ -245,8 +252,8 @@ const WaterForm = (props) => {
             onChange={handleChange}
             required
           />
-          <label htmlFor='Brooklyn'>Brooklyn</label>
-
+          <label htmlFor='Brooklyn'> Brooklyn</label>
+          <br />
           <input
             type='radio'
             id='Bronx'
@@ -256,8 +263,8 @@ const WaterForm = (props) => {
             onChange={handleChange}
             required
           />
-          <label htmlFor='Bronx'>Bronx</label>
-
+          <label htmlFor='Bronx'> Bronx</label>
+          <br />
           <input
             type='radio'
             id='Queens'
@@ -267,8 +274,8 @@ const WaterForm = (props) => {
             onChange={handleChange}
             required
           />
-          <label htmlFor='Queens'>Queens</label>
-
+          <label htmlFor='Queens'> Queens</label>
+          <br />
           <input
             type='radio'
             id='Staten Island'
@@ -278,11 +285,12 @@ const WaterForm = (props) => {
             onChange={handleChange}
             required
           />
-          <label htmlFor='Staten Island'>Staten Island</label>
+          <label htmlFor='Staten Island'> Staten Island</label>
         </div>
-
+        <br />
+        <h3>Contact Info for Point Person:</h3>
         <div>
-          <label htmlFor='phone'>Phone:</label>
+          <label htmlFor='phone'>Phone </label>
           <input
             type='text'
             id='phone'
@@ -293,7 +301,7 @@ const WaterForm = (props) => {
           />
         </div>
         <div>
-          <label htmlFor='email'>Email:</label>
+          <label htmlFor='email'>Email </label>
           <input
             type='email'
             id='email'

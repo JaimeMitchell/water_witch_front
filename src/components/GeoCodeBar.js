@@ -38,10 +38,14 @@ const GeoCodeBar = ({ apiKey }) => {
     <>
       <form onSubmit={handleSubmit}>
         <input type='text' value={query} onChange={handleChange} />
-        <button type='submit'>Search</button>
+        <button type='submit'>Get GeoCoordinates</button>
         <ul>
           {results.map(({ label, x, y }, index) => (
-            <li className='search-results' key={index} onClick={() => setSelectedResult({ label, x, y })}>
+            <li
+              className='search-results'
+              key={index}
+              onClick={() => setSelectedResult({ label, x, y })}
+            >
               <br />
               {label}
               <br />

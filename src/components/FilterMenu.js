@@ -9,7 +9,6 @@ const FilterMenu = ({
 }) => {
   return (
     <div>
-      <h4>Filters</h4>
       <Form>
         <Form.Group controlId='formTypeSelect'>
           <Form.Label>Type</Form.Label>

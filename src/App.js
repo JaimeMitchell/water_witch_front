@@ -126,6 +126,7 @@ const App = () => {
   
   return (
     <div className='parent'>
+       <h1>WaterWitch Map</h1>
       <div>
         <select
           value={selectedOption}
@@ -133,7 +134,7 @@ const App = () => {
         >
           <option value='instructions'>Read Carefully Before Use</option>
           <option value='map'>Water Witch Map</option>
-          <option value='menu'>Filter</option>
+          <option value='menu'>Filters</option>
           <option value='search'>Search</option>
           <option value='form'>Add Water Location</option>
         </select>
