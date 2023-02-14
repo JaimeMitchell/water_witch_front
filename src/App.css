@@ -25,10 +25,12 @@
   flex-direction: column;
   align-items: center;
 }
-label{
+
+label {
   font-weight: bolder;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 li {
   list-style: none;
 }
@@ -40,9 +42,15 @@ h1 {
 h2 {
   font-family: fantasy;
 }
+
 h3 {
   font-family: fantasy;
 }
+
+h4 {
+  font-family: fantasy;
+}
+
 .hidden {
   display: none;
 }

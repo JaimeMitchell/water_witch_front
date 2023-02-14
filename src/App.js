@@ -126,7 +126,7 @@ const App = () => {
   
   return (
     <div className='parent'>
-       <h2>WaterWitch Map</h2>
+       <h4>WaterWitch Map</h4>
       <div>
         <select
           value={selectedOption}
