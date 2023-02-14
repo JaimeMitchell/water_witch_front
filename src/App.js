@@ -44,9 +44,9 @@ const redIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-const yellowIcon = new L.Icon({
+const violetIcon = new L.Icon({
   iconUrl:
-    'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+    'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
   shadowUrl:
     'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
   iconSize: [25, 41],
@@ -106,9 +106,9 @@ const App = () => {
       selectedType === 'Non-Profit Fill Station' ||
       selectedType === 'Non-Profit Hose Bibb'
     ) {
-      setIcon(greenIcon);
+      setIcon(violetIcon);
     } else if (selectedType === 'Bottle') {
-      setIcon(yellowIcon);
+      setIcon(greenIcon);
     }
   }, [selectedType]);
 
