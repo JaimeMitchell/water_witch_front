@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Marker, useMap, Popup } from 'react-leaflet';
 import L from 'leaflet';
 
-const redIcon = new L.Icon({
+const blackIcon = new L.Icon({
   iconUrl:
     'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
   shadowUrl:
@@ -25,8 +25,13 @@ function LocationMarker(props) {
   }, [map]);
 
   return location ? (
-    <Marker position={[location.lat, location.lng]} icon={redIcon}>
-      <Popup>Here you are!</Popup>
+    <Marker position={[location.lat, location.lng]} icon={blackIcon}>
+      <Popup>
+        You are dowsing here! <br />
+        {location.lat}
+        <br />
+        {location.lng}
+      </Popup>
     </Marker>
   ) : null;
 }
