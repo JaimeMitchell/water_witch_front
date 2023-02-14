@@ -45,13 +45,11 @@ const Instructions = () => {
         <li>
           * Please use the form to add dependable potable/safe to drink
           water-sources that you vet.
-          <li>
-            <br />
-            * You can copy and paste the lat/lon coordinates in your current
-            location,
-            <br />
-            or use the searchbar to get coordinates of the address.
-          </li>
+        </li>
+        <br />
+        <li>
+          * You can copy and paste the lat/lon coordinates in your current
+          location, or use the searchbar to get coordinates of the address.
         </li>
         <br /> <h3>Link to a common water key</h3>
         <a href='https://www.homedepot.com/p/DANCO-5-16-in-Sillcock-Key-80132/300754237?source=shoppingads&locale=en-US&srsltid=Ad5pg_F64O-0nudNoELPfkPhe8JyAIfoogLi2s25PwPYAFMZ6974fE82sX4'>
@@ -59,17 +57,15 @@ const Instructions = () => {
         </a>
         <br />
         <br />
-        It will only take me one complaint, which I'll follow up on, <br />
-        before this becomes another app you have to make an account to use.
         <li>
-          This will give me access to your location and other relevant info that
-          is none of my business, <br />
-          which I will use to keep track of who is using my app, what water
-          sources they are near, interested in, so on.
+          {' '}
+          It will only take me one complaint, which I'll follow up on, <br />
+          before this becomes another app you have to make an account to use.
           <br />
           Right now this is just a database of potable water sources, not
           people.
           <br />
+          Let's keep it that way.
         </li>
         <br />
         <p className='wic'>Thank you for any dousing you do!</p>
