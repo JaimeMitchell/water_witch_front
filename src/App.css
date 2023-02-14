@@ -25,16 +25,22 @@
   flex-direction: column;
   align-items: center;
 }
-li{
+
+li {
   list-style: none;
 }
-span {
+
+h1 {
   font-family: cursive;
 }
-h1{font-family: cursive;}
 
 .hidden {
   display: none;
+}
+
+.script {
+  font-family: cursive;
+  font-style: strong;
 }
 
 .menu-form {
@@ -55,14 +61,14 @@ h1{font-family: cursive;}
   width: 1000vw;
 } */
 
-.instructions{
+.instructions {
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
-  
+
+
 }
 
 .menu {

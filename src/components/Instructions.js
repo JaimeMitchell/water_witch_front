@@ -3,10 +3,10 @@ const Instructions = () => {
   return (
     <div className='instructions'>
       <h1>WaterWitch </h1>
-      <span>
+      <p className='script'>
         Wiccan Rede, an ethical code that states, “If it harm none, do what you
         will,”
-      </span>
+      </p>
       <br />
       <ul>
         {' '}
@@ -63,7 +63,7 @@ const Instructions = () => {
           simple, public app more complicated and private than it has to be.
         </li>
         <br />
-        <span>Thank you for any dousing you do!</span>
+        <p className='script'>Thank you for any dousing you do!</p>
       </ul>
       <br />
     </div>
