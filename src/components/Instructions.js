@@ -32,8 +32,8 @@ const Instructions = () => {
         </li>
         <br />
         <li>
-          * Public water sources like fill stations and Public Schools, please
-          ask what the best time is and when the kids are not there.
+          * For public water sources like fill stations and public schools,
+          please ask what the best time is and when the kids are not there.
         </li>
         <br />
         <li>* Please use the correct size water key.</li>
@@ -43,7 +43,8 @@ const Instructions = () => {
         <li>* Please do not use pliers and strip the valve stems. </li>
         <br />
         <li>
-          * Please use the form to add dependable water-sources that you vet.
+          * Please use the form to add dependable potable/safe to drink
+          water-sources that you vet.
           <li>
             <br />
             * You can copy and paste the lat/lon coordinates in your current
@@ -55,7 +56,7 @@ const Instructions = () => {
         <br /> <h3>Link to a common water key</h3>
         <a href='https://www.homedepot.com/p/DANCO-5-16-in-Sillcock-Key-80132/300754237?source=shoppingads&locale=en-US&srsltid=Ad5pg_F64O-0nudNoELPfkPhe8JyAIfoogLi2s25PwPYAFMZ6974fE82sX4'>
           Nope, I'm not making a profit if you click on this!
-        </a>{' '}
+        </a>
         <br />
         <br />
         It will only take me one complaint, which I'll follow up on, <br />

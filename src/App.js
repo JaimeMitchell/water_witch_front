@@ -133,7 +133,7 @@ const App = () => {
           onChange={(e) => setSelectedOption(e.target.value)}
         >
           <option value='instructions'>Read Carefully Before Use</option>
-          <option value='map'>Water Witch Map</option>
+          <option value='map'>Map</option>
           <option value='menu'>Filters</option>
           <option value='search'>Search</option>
           <option value='form'>Add Water Location</option>
