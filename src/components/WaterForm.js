@@ -30,7 +30,6 @@ const WaterForm = (props) => {
         fieldValue = '';
       }
     }
-    console.log(fieldName, fieldValue);
     const newFormData = { ...formData, [fieldName]: fieldValue };
     setFormData(newFormData);
   };
@@ -51,10 +50,13 @@ const WaterForm = (props) => {
 
   return (
     <div>
-      <h3>Add Water Location</h3>
+      <br/>
+
+      <p className='wic'>Add Water Location</p>
       <form className='water-container' onSubmit={handleSubmit}>
         <div className='form-group'>
-          <label htmlFor='latitude'>Latitude: </label>
+
+          <label htmlFor='latitude'>Latitude </label>
           <input
             type='number'
             step='0.0000001'
@@ -66,7 +68,6 @@ const WaterForm = (props) => {
             required
           />
         </div>
-
         <div className='form-group'>
           <label htmlFor='longitude'>Longitude </label>
           <input
@@ -106,7 +107,7 @@ const WaterForm = (props) => {
         </div>
 
         <div>
-          <label htmlFor='details'>Details: </label>
+          <label htmlFor='details'>Details </label>
           <input
             type='text'
             id='details'
@@ -120,7 +121,7 @@ const WaterForm = (props) => {
         <br />
         <div>
           <label>
-            <h3> Type Required:</h3>
+            <p className='wic'>Type Required:</p>
           </label>
           <input
             type='radio'
@@ -229,7 +230,7 @@ const WaterForm = (props) => {
         <br />
         <div>
           <label>
-            <h3> Borough Required:</h3>
+            <p className='wic'> Borough Required:</p>
           </label>
 
           <input
@@ -288,7 +289,7 @@ const WaterForm = (props) => {
           <label htmlFor='Staten Island'> Staten Island</label>
         </div>
         <br />
-        <h3>Contact Info for Point Person:</h3>
+        <p className='wic'> Point Person:</p>
         <div>
           <label htmlFor='phone'>Phone </label>
           <input
