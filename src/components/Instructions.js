@@ -69,10 +69,6 @@ const Instructions = () => {
           Right now this is just a database of water sources, not people.
           <br />
         </li>
-        <li>
-          So please be respectful and don't put me in a position to make a
-          simple, public app more complicated and private than it has to be.
-        </li>
         <br />
         <p className='script'>Thank you for any dousing you do!</p>
       </ul>
