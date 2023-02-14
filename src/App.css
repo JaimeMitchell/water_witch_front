@@ -55,7 +55,15 @@ h1{font-family: cursive;}
   width: 1000vw;
 } */
 
-
+.instructions{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+  
+}
 
 .menu {
   display: flex;
