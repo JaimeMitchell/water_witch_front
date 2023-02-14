@@ -16,7 +16,7 @@ const Instructions = () => {
         </li>
         <br />
         <li>
-          * explain what you'd like to do, show them you have the right size
+          * Explain what you'd like to do, show them you have the right size
           water key, and offer something in return.
         </li>
         <br />
@@ -43,8 +43,8 @@ const Instructions = () => {
         <br />
         <li>
           * Please use the form to add dependable water-sources that you vet.
-          <br />
           <li>
+            <br />
             * You can copy and paste the lat/lon coordinates in your current
             location,
             <br />
