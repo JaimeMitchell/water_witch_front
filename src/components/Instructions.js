@@ -5,33 +5,34 @@ const Instructions = () => {
       <h1>WaterWitch </h1>
       <p className='script'>
         Wiccan Rede, an ethical code that states, “If it harm none, do what you
-        will,”
+        will,” <br />
+        ...but
       </p>
       <br />
       <ul>
-        {' '}
         <li>
-          * If you are using a private water source, get the number on the door
-          for the super.
+          * Please, if you are using a private water source, get the number on
+          the door for the super.
         </li>
         <br />
         <li>
-          * Explain what you'd like to do, show them you have the right size
-          water key, and offer something in return.
+          * Please explain what you'd like to do, show them you have the right
+          size water key, and offer something in return.
         </li>
         <br />
         <li>
-          * Examples: if you don't have a few bucks, offer to help take the
-          trash out or hose the sidewalk, etc.
+          * Examples: if you don't have a few bucks, maybe offer to help take
+          the trash out or hose the sidewalk, etc.
         </li>
         <br />
         <li>
-          * If it's a non-profit, I ask if someone is around and offer a hand.
-          They are excempt from water bills, so tend to be a bit more generous.
+          * If it's a non-profit, I usually ask if someone is around and offer a
+          hand. They are excempt from water bills, so tend to be a bit more
+          generous.
         </li>
         <br />
         <li>
-          * Public watersources like fill stations, Public Schools, absolutely
+          * Public water sources like fill stations and Public Schools, please
           ask what the best time is and when the kids are not there.
         </li>
         <br />
@@ -57,14 +58,16 @@ const Instructions = () => {
         </a>{' '}
         <br />
         <br />
-        It will only take me one complaint, which I'll follow up on, before I
-        this becomes another app you have to make an account to use.
-        <br />
+        It will only take me one complaint, which I'll follow up on, <br />
+        before this becomes another app you have to make an account to use.
         <li>
           This will give me access to your location and other relevant info that
           is none of my business, <br />
           which I will use to keep track of who is using my app, what water
           sources they are near, interested in, so on.
+          <br />
+          Right now this is just a database of water sources, not people.
+          <br />
         </li>
         <li>
           So please be respectful and don't put me in a position to make a
