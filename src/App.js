@@ -123,8 +123,9 @@ const App = () => {
   }, [requestUrl]);
 
   const apiKey = process.env.REACT_APP_LOC;
+  
   return (
-    <div>
+    <div className='parent'>
       <div>
         <select
           value={selectedOption}
@@ -164,10 +165,10 @@ const App = () => {
           />
         )}
       </div>
-
+<div className='map'>
       <MapContainer
         center={[40.7157, -73.8667]}
-        style={{ height: '100vh', width: '100vw' }}
+        style={{ height: '95vh', width: '95vw', position:'flex' }}
         zoom={11}
         scrollWheelZoom={true}
       >
@@ -199,6 +200,7 @@ const App = () => {
           ))}
         </MarkerClusterGroup>
       </MapContainer>
+    </div>
     </div>
   );
 };

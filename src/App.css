@@ -10,6 +10,29 @@
       "main main main main"
       "footer footer footer nav";
 } */
+.parent {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map {
+  display: flex;
+  width: 98%;
+  height: 98%;
+  flex-direction: column;
+  align-items: center;
+}
+li{
+  list-style: none;
+}
+span {
+  font-family: cursive;
+}
+h1{font-family: cursive;}
+
 .hidden {
   display: none;
 }
@@ -27,6 +50,13 @@
 
 }
 
+/* .leaflet-container{
+  height: 100vh;
+  width: 1000vw;
+} */
+
+
+
 .menu {
   display: flex;
   grid-area: menu;
@@ -42,7 +72,8 @@
   align-items: flex-end;
   justify-content: space-between;
 }
-.search-results{
+
+.search-results {
   text-align: center;
 }
 
