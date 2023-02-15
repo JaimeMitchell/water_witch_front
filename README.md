@@ -1,4 +1,4 @@
-# `The WaterWitch Map`<br/>Locate Potable Water in NYC!
+# `The WaterWitch Map`<br/><h2>Locate Potable Water in NYC!</h2>
 
 ## `Overview`
 

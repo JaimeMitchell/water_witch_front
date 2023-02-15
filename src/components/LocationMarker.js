@@ -18,7 +18,7 @@ function LocationMarker(props) {
   const [location, setLocation] = useState(null);
 
   useEffect(() => {
-    map.locate({ setView: true, maxZoom: 13 });
+    map.locate({ setView: true, maxZoom: 11 });
     map.on('locationfound', (e) => {
       setLocation(e.latlng);
     });
