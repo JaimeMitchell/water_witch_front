@@ -40,7 +40,6 @@ const Instructions = () => {
         Wappinger
       </a>
       <br />
-      
       <ul>
         <p className='wic'>Other things to consider when using this app:</p>
         <br />
@@ -51,19 +50,32 @@ const Instructions = () => {
         <br />
         <li>
           * Please explain what you'd like to do, show them you have the right
-          size water key, and offer something in return.
+          size water key, and maybe offer something in return if you don't want
+          them to give you a problem.
         </li>
         <br />
         <li>
-          * Examples: if you don't have a few bucks, maybe offer to help take
-          the trash out or hose the sidewalk, etc.
+          * Examples of "a problem": They could shut off the bib so the rest of
+          us can't use it. They can and have called the police.
         </li>
         <br />
         <li>
-          * If it's a non-profit, I usually ask if someone is around and offer a
-          hand. They are excempt from water bills, so tend to be a bit more
-          generous.
+          * Examples of how to avoid a problem: If you don't have a few bucks,
+          maybe offer to help take the trash out or hose the sidewalk, etc.
         </li>
+        <br />
+        <li>
+          * If it's a non-profit property, they are excempt from the water and
+          sewage bill, <br />
+          so tend to be a bit more generous.{' '}
+        </li>
+        <br />
+        <li>
+          * If they give you a problem, kindly remind them they are not paying a
+          water bill.{' '}
+        </li>
+        <br />
+        <li> * If it's a church giving you a problem, kindly ask them "What would Jesus do?"</li>
         <br />
         <li>
           * For public water sources like fill stations and public schools,
