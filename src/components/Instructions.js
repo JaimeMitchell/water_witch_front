@@ -2,46 +2,8 @@ import React from 'react';
 const Instructions = () => {
   return (
     <div className='instructions'>
-      <br />
-      <p className='wic'>
-        Wiccan Rede, an ethical code that states, “If it harm none, do what you
-        will,” <br />
-        ...but
-      </p>
-      Harm has been done.
-      <br /> When you drink from any fountain or fill your jug from a hose bib,
-      <br /> please acknowledge "We The People of the United States",
-      <br /> stole it through violence and genocide, started charging a fee for
-      it, and continue to mistreat it.
-      <br /> Find out more about some of the people who managed and cared for
-      the stolen waters we drink:
-      <br />
-      <a href='https://delawaretribe.org/'>Munsee Lenape</a>
-      <br />
-      <a href='https://www.mohican.com/'>
-        Mohican 'The People of the Waters that Are Never Still'
-      </a>
-      <br />
-      <a href='https://www.jeremynative.com/onthissite/wiki/the-tribes-of-long-island/'>
-        “Canarsie”
-      </a>
-      <br />
-      <a href='https://www.schaghticoke.info/'>
-        “Schaghticoke 'Gathered Waters'”
-      </a>
-      <br />
-      <a href='https://en.wikipedia.org/wiki/Montauk_Point_land_claim'>
-        “Montauk”
-      </a>
-      <br />
-      <a href='https://munseedelaware.com/'>Munsee Delaware Grammer Site</a>
-      <br />
-      <a href='https://mountgulian.org/history/the-wappinger-people/'>
-        Wappinger
-      </a>
-      <br />
-      <ul>
-        <p className='wic'>Other things to consider when using this app:</p>
+            <br />
+        <p className='wic'>Things to consider when using this app:</p>
         <br />
         <li>
           * Please, if you are using a private water source, get the number on
@@ -101,18 +63,6 @@ const Instructions = () => {
         <a href='https://www.homedepot.com/p/DANCO-5-16-in-Sillcock-Key-80132/300754237?source=shoppingads&locale=en-US&srsltid=Ad5pg_F64O-0nudNoELPfkPhe8JyAIfoogLi2s25PwPYAFMZ6974fE82sX4'>
           Nope, I'm not making a profit if you click on this!
         </a>
-        <br />
-        <br />
-        <li>
-          It will only take me one complaint of damage to the water source,
-          which I'll follow up on, <br />
-          before this becomes another app you have to make an account to use.
-          <br />
-          Right now this is just a database of potable water sources, not
-          people.
-          <br />
-          Let's keep it that way.
-        </li>
         <br />
         <p className='wic'>Thank you for any dousing you do!</p>
       </ul>
