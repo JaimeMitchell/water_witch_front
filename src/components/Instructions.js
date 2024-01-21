@@ -30,8 +30,9 @@ const Instructions = () => {
           * For public water sources like fill stations and public schools,
           please ask what the best time is and when the kids are not there.
         </li>
+        <li>* If all these measures fail, just get your water late at night. Past 11pm is usually a safe bet.</li>
         <br />
-        <li>* Please use the correct size water key.They are anywhere from $1-10 Dollars.</li>
+        <li>* Please use the correct size water key. They are anywhere from $1-10 Dollars.</li>
 
         <br />
         <li>* Please do not use pliers and strip the valve stems. </li>
