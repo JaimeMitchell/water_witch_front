@@ -30,7 +30,7 @@ const Instructions = () => {
         </li>
         <br />
         <li>
-          * If it's a non-profit, they are excempt from water bills, so tend to be a bit more
+          * If it's a non-profit, they are exempt from water bills, so tend to be a bit more
           generous.
         </li>
         <br />
