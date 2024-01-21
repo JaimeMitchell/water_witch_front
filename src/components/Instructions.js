@@ -8,8 +8,6 @@ const Instructions = () => {
         will,” <br />
         ...but
       </p>
-      <br />
-
       <ul>
         <p className='wic'>landowners, tenants and NYPD get really bent out of shape when you take a few pennies of water.</p>
         <p className='wic'>So to avoid a commotion and possible imprisonment over this water:</p>
