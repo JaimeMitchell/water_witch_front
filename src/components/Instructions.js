@@ -47,7 +47,7 @@ const Instructions = () => {
         </li>
         <br />
         <a href='https://www.homedepot.com/p/Husky-4-Way-Sillcock-Key-16PL0129/304217572'>
-         Link to a common water key I use
+         Link to the water key I use.
         </a>
         <br><br />
         <p className='wic'>Thank you for any dousing you do!</p>
