@@ -132,7 +132,7 @@ const App = () => {
           value={selectedOption}
           onChange={(e) => setSelectedOption(e.target.value)}
         >
-          <option value='instructions'>Read Carefully Before Use</option>
+          <option value='instructions'>Helpful Tips</option>
           <option value='map'>Map</option>
           <option value='menu'>Filters</option>
           <option value='search'>Search</option>
